@@ -1,6 +1,6 @@
 open Graph
 open Printf
-    
+
 type path = string
 
 (* Format of text files:
@@ -111,4 +111,6 @@ let from_file path =
   
   close_in infile ;
   final_graph
-  
+
+(*TODO*)
+let export _path = ""
