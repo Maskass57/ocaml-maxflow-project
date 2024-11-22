@@ -26,4 +26,6 @@ demo: build
 clean:
 	find -L . -name "*~" -delete
 	rm -f *.exe
+	rm -f *.dot
+	rm -f *.svg
 	dune clean
