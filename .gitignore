@@ -3,3 +3,5 @@ outfile
 *~
 *.exe
 .vscode/
+*.dot
+*.svg
