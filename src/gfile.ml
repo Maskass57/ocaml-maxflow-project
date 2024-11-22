@@ -112,5 +112,16 @@ let from_file path =
   close_in infile ;
   final_graph
 
-(*TODO*)
-let export _path = ""
+(*Writes a string graph in dot format (the format understood by graphviz)*)
+let export path gr =
+  let indent = "  " in
+  (* Open a write-file. *)
+  let ff = open_out path in
+  (* Write in this file. *)
+  fprintf ff "digraph finite_state_machine {\n" ;
+  
+  n_iter_sorted gr (fun id -> fprintf ff "%s%d;\n" indent id) ;
+  e_iter gr (fun id -> fprintf ff "%s%d -> %d [label = \"%s\"];\n" indent id.src id.tgt id.lbl) ;
+  
+  fprintf ff "}\n" ;
+  close_out ff ;
