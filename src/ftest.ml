@@ -54,7 +54,7 @@ let () =
   export "./export.dot" _ford_graph_mapped;
   export "./joli.dot" fulkerson_joli;
 
-  let dfs_result = dfs ford_graph 1 4 in
+  let dfs_result = dfs ford_graph 0 5 in
   let converted_result = dfsConvert dfs_result in
 
   Printf.printf "Path found: [%s]\n"

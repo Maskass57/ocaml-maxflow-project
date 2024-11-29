@@ -27,10 +27,10 @@ let grapheJoli gr = gmap gr (fun x -> string_of_int x.flow ^ "/" ^ string_of_int
 
 let dfs gr origin destination =
   let rec dfsAux o d acu =
-    if (o = d) then Some acu (*should return acu...TODO: reverse*)
+    if (o = d) then Some (List.rev (d::acu)) (*should return acu...TODO: reverse*)
     else 
-      let listArcs = out_arcs gr origin in 
-      let listArcsFiltered = List.filter (fun x -> List.mem o acu && x.lbl <> 0) listArcs in 
+      let listArcs = out_arcs gr o in 
+      let listArcsFiltered = List.filter (fun x -> not(List.mem o acu) && x.lbl <> 0) listArcs in 
       let listNodesFiltered = List.map (fun x -> x.tgt) listArcsFiltered in
       let rec try_nodes nodes =
         match nodes with
