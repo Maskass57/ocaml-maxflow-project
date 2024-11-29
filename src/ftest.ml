@@ -31,7 +31,9 @@ let () =
   let graph = from_file infile in
   let graph_int = gmap graph (fun x -> int_of_string x) in
   let fulkerson = convertGraph graph_int in 
+
   let fulkerson_joli = grapheJoli fulkerson in 
+  let _fulkerson_Int = gmap fulkerson (fun x -> x.flow) in
 
   let _new_graph = clone_nodes graph in
   let _mapped_graph = gmap graph (fun _x -> "a") in 
@@ -50,4 +52,10 @@ let () =
 
   export "./normal.dot" graph;
   export "./export.dot" _ford_graph_mapped;
-  export "./joli.dot" fulkerson_joli
+  export "./joli.dot" fulkerson_joli;
+
+  let dfs_result = dfs ford_graph 1 4 in
+  let converted_result = dfsConvert dfs_result in
+
+  Printf.printf "Path found: [%s]\n"
+      (String.concat " -> " (List.map string_of_int converted_result))
