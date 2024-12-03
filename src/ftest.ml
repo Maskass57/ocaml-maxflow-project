@@ -55,7 +55,15 @@ let () =
   export "./joli.dot" fulkerson_joli;
 
   let dfs_result = dfs ford_graph 0 5 in
-  let converted_result = dfsConvert dfs_result in
+  let converted_result = get_list dfs_result in
 
-  Printf.printf "Path found: [%s]\n"
-      (String.concat " -> " (List.map string_of_int converted_result))
+  let unOptionedResult = unOption dfs_result in
+  let dfs1st = updateEdgeGraph ford_graph unOptionedResult in
+  let _mapped_dfs1st = gmap dfs1st (fun x -> string_of_int x) in
+  let _testFordFulk = fordFulkerson graph_int 0 5 in
+  let _testFordFulk_mapped = gmap _testFordFulk (fun x -> string_of_int x) in
+
+  export "./dfs1st.dot" _mapped_dfs1st;
+  export "./testFinal.dot" _testFordFulk_mapped;
+  Printf.printf "Path found: [%s] and min: %s\n"
+      (String.concat " -> " (List.map string_of_int converted_result)) (string_of_int (get_min dfs_result))
