@@ -14,7 +14,7 @@ val get_list: (id list * int) option -> id list
 val get_min: (id list * int) option -> int
 
 val updateEdgeGraph: int graph -> (id list * int) -> int graph
-val unEdgeGraph: fulkerson_graphs -> int graph -> int graph
-val fordFulkerson: int graph -> id -> id -> int graph
+val unEdgeGraph: fulkerson_graphs -> int graph -> fulkerson_graphs
+val fordFulkerson: int graph -> id -> id -> fulkerson_graphs
 (*
 val createArcs: fulkerson_label Graph.arc ->  (fulkerson_label arc , fulkerson_label arc)*)

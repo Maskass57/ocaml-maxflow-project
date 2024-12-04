@@ -1,5 +1,6 @@
 open Tools
 open Graph
+open Gfile
 
 type fulkerson_label = {flow : id; capa : id}
 type fulkerson_graphs = fulkerson_label graph
@@ -27,7 +28,7 @@ let grapheJoli gr = gmap gr (fun x -> string_of_int x.flow ^ "/" ^ string_of_int
 
 let unOption x = match x with
   | Some x -> x
-  | None -> failwith "Error on get_arc" (*ERREUR ICI*)
+  | None -> raise (Graph_error("No path found: get_arc")) (*ERREUR ICI*)
 
 let dfs gr origin destination =
   let rec dfsAux o d acu =
@@ -75,18 +76,29 @@ let getVal = function
   | None -> raise (Graph_error("No path found"))
 let unEdgeGraph startGraph eGraph =
   (*gmap startGraph (fun x -> let newVal = (getVal (find_arc eGraph x.tgt x.src)).lbl in {flow = newVal; capa = x.lbl.capa}  )*)
-  e_fold startGraph (fun acu x  -> let newVal = (getVal (find_arc eGraph x.tgt x.src)).lbl in add_arc acu x.src x.tgt newVal) (clone_nodes startGraph)
+  e_fold startGraph (fun acu x  -> let newVal = (getVal (find_arc eGraph x.tgt x.src)).lbl in new_arc acu {src=x.src; tgt=x.tgt; lbl={flow=newVal; capa=x.lbl.capa}}) (clone_nodes startGraph)
 
 let fordFulkerson gr origin destination =
   let fulkerson = convertGraph gr in 
   let eGraph = edgeGraph fulkerson in
 
-  let rec fordFulkersonAux gr1= 
-    let (lst,inc) = unOption (dfs gr1 origin destination)  in
-    if(lst=[]) then gr1 
-    else fordFulkersonAux (updateEdgeGraph gr1 (lst,inc))
+  let rec fordFulkersonAux gr1 i= 
+        
+        let temp = unEdgeGraph fulkerson gr1 in 
+        let joli = grapheJoli temp in
+        export ("./" ^ (string_of_int i)^".dot") joli;
+    match dfs gr1 origin destination with
+      | None -> gr1
+      | Some (lst, inc) -> 
+        
+        Printf.printf "Path found: [%s] and min: %s\n"
+      (String.concat " -> " (List.map string_of_int lst)) (string_of_int (inc));
+      
+      if(lst=[]) then gr1 
+      else fordFulkersonAux (updateEdgeGraph gr1 (lst,inc)) (i+1) 
   in
-  unEdgeGraph gr (fordFulkersonAux eGraph)
+  unEdgeGraph fulkerson (fordFulkersonAux eGraph 0)
+   
 
 
 
