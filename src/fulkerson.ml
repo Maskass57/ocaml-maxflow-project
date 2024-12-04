@@ -76,17 +76,27 @@ let getVal = function
   | None -> raise (Graph_error("No path found"))
 let unEdgeGraph startGraph eGraph =
   (*gmap startGraph (fun x -> let newVal = (getVal (find_arc eGraph x.tgt x.src)).lbl in {flow = newVal; capa = x.lbl.capa}  )*)
-  e_fold startGraph (fun acu x  -> let newVal = (getVal (find_arc eGraph x.tgt x.src)).lbl in new_arc acu {src=x.src; tgt=x.tgt; lbl={flow=newVal; capa=x.lbl.capa}}) (clone_nodes startGraph)
+  e_fold startGraph (fun acu x  -> 
+    let capaInverse = match find_arc startGraph x.tgt x.src with
+      | Some arc -> arc.lbl.capa
+      | None -> 0
+  in 
+    let newVal = (getVal (find_arc eGraph x.tgt x.src)).lbl - capaInverse in 
+    if (newVal >= 0) 
+    then new_arc acu {src=x.src; tgt=x.tgt; lbl={flow=newVal; capa=x.lbl.capa}}
+    else new_arc acu {src=x.src; tgt=x.tgt; lbl={flow=0; capa=x.lbl.capa}}) (clone_nodes startGraph)
 
 let fordFulkerson gr origin destination =
   let fulkerson = convertGraph gr in 
   let eGraph = edgeGraph fulkerson in
 
+  let mappedEGraph = gmap eGraph (fun x -> string_of_int x) in
+  export ("./test.dot") mappedEGraph;
+
   let rec fordFulkersonAux gr1 i= 
-        
-        let temp = unEdgeGraph fulkerson gr1 in 
-        let joli = grapheJoli temp in
-        export ("./" ^ (string_of_int i)^".dot") joli;
+    let temp = unEdgeGraph fulkerson gr1 in 
+    let joli = grapheJoli temp in
+    export ("./" ^ (string_of_int i) ^ ".dot") joli;
     match dfs gr1 origin destination with
       | None -> gr1
       | Some (lst, inc) -> 

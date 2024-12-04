@@ -31,10 +31,9 @@ let () =
   let graph = from_file infile in
   let graph_int = gmap graph (fun x -> int_of_string x) in
   let fulkerson = convertGraph graph_int in 
-
   let fulkerson_joli = grapheJoli fulkerson in 
+  (*
   let _fulkerson_Int = gmap fulkerson (fun x -> x.flow) in
-
   let _new_graph = clone_nodes graph in
   let _mapped_graph = gmap graph (fun _x -> "a") in 
   let mapped_graph_path = gmap graph (fun x -> int_of_string x) in
@@ -44,15 +43,18 @@ let () =
   let ford_graph = edgeGraph fulkerson in
 
   let _ford_graph_mapped = gmap ford_graph (fun x -> string_of_int x) in 
-
+  *)
   (* Rewrite the graph that has been read. *)
   let () = write_file outfile graph in
 
   ();
 
+  let _testFordFulk = fordFulkerson graph_int 0 5 in
+
   export "./normal.dot" graph;
-  export "./export.dot" _ford_graph_mapped;
   export "./joli.dot" fulkerson_joli;
+  
+  (*export "./export.dot" _ford_graph_mapped;
 
   let dfs_result = dfs ford_graph 0 5 in
   let _converted_result = get_list dfs_result in
@@ -60,10 +62,10 @@ let () =
   let unOptionedResult = unOption dfs_result in
   let dfs1st = updateEdgeGraph ford_graph unOptionedResult in
   let _mapped_dfs1st = gmap dfs1st (fun x -> string_of_int x) in
-  let _testFordFulk = fordFulkerson graph_int 0 5 in
   let _testFordFulk_mapped = grapheJoli _testFordFulk in
 
   export "./dfs1st.dot" _mapped_dfs1st;
   export "./testFinal.dot" _testFordFulk_mapped;
   (*Printf.printf "Path found: [%s] and min: %s\n"
       (String.concat " -> " (List.map string_of_int converted_result)) (string_of_int (get_min dfs_result))*)
+  *)
