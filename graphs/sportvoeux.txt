@@ -1,0 +1,26 @@
+n Jean 1
+n Philippe 2
+n Claude 3
+n Francis 4
+n Guillaume 5
+n Jean-Philippe 6
+
+n Badminton 101
+n Basket 102
+n Foot 103
+n Rugby 104
+n Danse 105
+n APPN 106
+n CTP 107
+n Pétanque 108
+
+a 1 104
+a 1 102
+a 2 105
+a 2 101
+a 3 101
+a 3 104
+a 4 108
+a 4 103
+a 5 105
+a 5 108

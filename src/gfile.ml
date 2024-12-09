@@ -57,7 +57,7 @@ let read_node graph line =
   try Scanf.sscanf line "n %f %f %d" (fun _ _ id -> new_node graph id)
   with e ->
     Printf.printf "Cannot read node in line - %s:\n%s\n%!" (Printexc.to_string e) line ;
-    failwith "from_file"
+    failwith "from_file c"
 
 (* Ensure that the given node exists in the graph. If not, create it. 
  * (Necessary because the website we use to create online graphs does not generate correct files when some nodes have been deleted.) *)
@@ -69,14 +69,14 @@ let read_arc graph line =
         (fun src tgt lbl -> let lbl = String.trim lbl in new_arc (ensure (ensure graph src) tgt) { src ; tgt ; lbl } )
   with e ->
     Printf.printf "Cannot read arc in line - %s:\n%s\n%!" (Printexc.to_string e) line ;
-    failwith "from_file"
+    failwith "from_file b"
 
 (* Reads a comment or fail. *)
 let read_comment graph line =
   try Scanf.sscanf line " %%" graph
   with _ ->
     Printf.printf "Unknown line:\n%s\n%!" line ;
-    failwith "from_file"
+    failwith "from_file a"
 
 let from_file path =
 

@@ -1,6 +1,7 @@
 open Gfile
 open Tools
 open Fulkerson
+open Apsgraph
 
 let () =
 
@@ -28,10 +29,11 @@ let () =
   in
 
   (* Open file *)
+  
   let graph = from_file infile in
   let graph_int = gmap graph (fun x -> int_of_string x) in
   let fulkerson = convertGraph graph_int in 
-  let fulkerson_joli = grapheJoli fulkerson in 
+  let _fulkerson_joli = grapheJoli fulkerson in 
   (*
   let _fulkerson_Int = gmap fulkerson (fun x -> x.flow) in
   let _new_graph = clone_nodes graph in
@@ -45,14 +47,19 @@ let () =
   let _ford_graph_mapped = gmap ford_graph (fun x -> string_of_int x) in 
   *)
   (* Rewrite the graph that has been read. *)
-  let () = write_file outfile graph in
+  let aps = from_file_aps infile in
+  let aps_mapped = gmap aps (fun x -> string_of_int x) in
+
+  let () = write_file outfile aps_mapped in
 
   ();
 
-  let _testFordFulk = fordFulkerson graph_int 0 5 in
-
+  (*let _testFordFulk = fordFulkerson graph_int 0 5 in
   export "./normal.dot" graph;
   export "./joli.dot" fulkerson_joli;
+  *)
+
+  export "./aps.dot" aps_mapped;
   
   (*export "./export.dot" _ford_graph_mapped;
 
