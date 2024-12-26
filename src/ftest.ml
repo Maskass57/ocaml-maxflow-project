@@ -1,6 +1,6 @@
 open Gfile
 open Tools
-open Fulkerson
+(*open Fulkerson*)
 open Apsgraph
 
 let () =
@@ -30,10 +30,10 @@ let () =
 
   (* Open file *)
   
-  let graph = from_file infile in
+  (*let graph = from_file infile in
   let graph_int = gmap graph (fun x -> int_of_string x) in
   let fulkerson = convertGraph graph_int in 
-  let _fulkerson_joli = grapheJoli fulkerson in 
+  let _fulkerson_joli = grapheJoli fulkerson in *)
   (*
   let _fulkerson_Int = gmap fulkerson (fun x -> x.flow) in
   let _new_graph = clone_nodes graph in

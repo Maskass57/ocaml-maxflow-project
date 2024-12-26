@@ -11,6 +11,7 @@ let read_comment graph line =
 
 let read_node_aps graph line =
   try 
+  print_endline ("Input line: " ^ line);
   Scanf.sscanf line "n %s %d" (fun _ id -> new_node graph id)
   (*TODO: Map*)
   with e ->
@@ -18,7 +19,8 @@ let read_node_aps graph line =
     failwith "read_node_aps"
 
 let read_arc_aps graph line =
-  try Scanf.sscanf line "a %d %d%%"
+  print_endline ("Input line: " ^ line);
+  try Scanf.sscanf line "a %d %d"
         (fun src tgt -> new_arc (ensure (ensure graph src) tgt) { src ; tgt ; lbl=1 } )
   with e ->
     Printf.printf "Cannot read arc in line - %s:\n%s\n%!" (Printexc.to_string e) line ;
@@ -58,3 +60,5 @@ let from_file_aps path =
   close_in infile ;
   final_graph
 
+
+  
