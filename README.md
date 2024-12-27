@@ -28,7 +28,7 @@ make demo
 dot -Tsvg aps.dot > aps.svg
 open aps.svg
 ```
-<img src="resources/aps.svg" alt="Exemple" width="700"/>
+![Exemple](resources/aps.svg)
 
 
 ## Better project: Max flow, min cost
