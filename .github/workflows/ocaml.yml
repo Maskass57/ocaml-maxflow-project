@@ -1,0 +1,33 @@
+name: Build OCaml Project
+
+on:
+  push:
+    branches:
+      - "**" # Trigger on all branches
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Install OCaml and dependencies
+      uses: avsm/setup-ocaml@v2
+      with:
+        ocaml-compiler: 4.14.0 # Adjust this to the OCaml version you need
+        dune-cache: true       # Enable dune cache for faster builds
+
+    - name: Install dependencies
+      run: |
+        opam install . --deps-only --yes
+
+    - name: Build the project
+      run: |
+        dune build
+
+    - name: Run tests (optional)
+      run: |
+        dune runtest
