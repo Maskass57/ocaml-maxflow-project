@@ -78,6 +78,7 @@ let read_comment graph line =
     Printf.printf "Unknown line:\n%s\n%!" line ;
     failwith "from_file a"
 
+(* Takes a graph and returns 4 variables containing: origin-people-sports-destination*)    
 let partition_nodes graph =
   let rec partition (origin, col1, col2, destination) nodes =
     match nodes with
