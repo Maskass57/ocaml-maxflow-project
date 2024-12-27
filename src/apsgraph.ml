@@ -12,8 +12,8 @@ let read_comment graph line =
 (* Reads a line with a node *)
 let read_node_aps graph line =
   try 
-  print_endline ("Input line: " ^ line);
-  Scanf.sscanf line "n %s %d" (fun _ id -> new_node graph id)
+    print_endline ("Input line: " ^ line);
+    Scanf.sscanf line "n %s %d" (fun _ id -> new_node graph id)
   with e ->
     Printf.printf "Cannot read node in line - %s:\n%s\n%!" (Printexc.to_string e) line ;
     failwith "read_node_aps"
@@ -34,14 +34,14 @@ let partition_nodes graph =
     match nodes with
     | [] -> (origin, col1, col2, destination)
     | id :: rest ->
-        if id >= 1 && id < 100 then
-          partition (origin, id :: col1, col2, destination) rest  (* Add to col1 : people list *)
-        else if id == 1000 then
-          partition (id,col1,col2,destination) rest
-        else if id == 1001 then
-          partition (origin,col1,col2,id) rest
-        else 
-          partition (origin, col1, id :: col2, destination) rest  (* Add to col2 : sports list *)
+      if id >= 1 && id < 100 then
+        partition (origin, id :: col1, col2, destination) rest  (* Add to col1 : people list *)
+      else if id == 1000 then
+        partition (id,col1,col2,destination) rest
+      else if id == 1001 then
+        partition (origin,col1,col2,id) rest
+      else 
+        partition (origin, col1, id :: col2, destination) rest  (* Add to col2 : sports list *)
   in
   let nodes = Graph.n_fold graph (fun acc id -> id :: acc) [] in
   partition (0, [], [], 0) nodes
@@ -76,7 +76,7 @@ let from_file_aps path =
   in
 
   let final_graph = loop empty_graph in
-  
+
   close_in infile ;
   final_graph
 ;;
@@ -85,22 +85,22 @@ let from_file_aps path =
 
 let add_origin_destination graph =
   let o_graph = 
-  try
-    new_node graph 1000 
-  with Graph_error _->
-    Printf.printf "Node origin already exists";
-    graph
+    try
+      new_node graph 1000 
+    with Graph_error _->
+      Printf.printf "Node origin already exists";
+      graph
   in
   let o_d_graph = 
-  try
-    new_node o_graph 1001
-  with Graph_error _-> 
-    Printf.printf "Node destination already exists";
-    o_graph
+    try
+      new_node o_graph 1001
+    with Graph_error _-> 
+      Printf.printf "Node destination already exists";
+      o_graph
   in
 
   let nodes = Graph.n_fold graph (fun acc id -> id :: acc) [] in
-  
+
   let add_arcs final_graph nodes =
     let rec add_arc_aux current_graph = function
       | [] -> current_graph 
@@ -108,8 +108,8 @@ let add_origin_destination graph =
         let updated_graph = 
           if (id >= 1 && id < 100) then 
             new_arc current_graph {src=1000;tgt=id;lbl=1}
-          (*else if (id > 100 && id <1000) then
-            new_arc current_graph {src=id;tgt=1001;lbl=1}
+            (*else if (id > 100 && id <1000) then
+              new_arc current_graph {src=id;tgt=1001;lbl=1}
             *)
           else 
             current_graph in
@@ -120,9 +120,9 @@ let add_origin_destination graph =
   add_arcs o_d_graph nodes
 
 
- (*Writes a string graph in dot format, but under a bipartite view (the format understood by graphviz)*)
+(*Writes a string graph in dot format, but under a bipartite view (the format understood by graphviz)*)
 
- let exportAPS path gr =
+let exportAPS path gr =
   let indent = "  " in
   (* Open a write-file. *)
   let ff = open_out path in
@@ -162,6 +162,6 @@ let add_origin_destination graph =
   Printf.fprintf ff "%s}\n" indent ;
 
   e_iter gr (fun id -> fprintf ff "%s%d -> %d [label = \"%s\"];\n" indent id.src id.tgt id.lbl) ;
-  
+
   fprintf ff "}\n" ;
   close_out ff ;
