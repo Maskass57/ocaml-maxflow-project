@@ -5,3 +5,5 @@ outfile
 .vscode/
 *.dot
 *.svg
+
+!resources/
