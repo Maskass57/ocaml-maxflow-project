@@ -2,16 +2,6 @@ open Graph
 open Printf
 open Apsgraph
 
-let ensure graph id = if node_exists graph id then graph else new_node graph id
-
-(* Reads a line with a node *)
-let read_node_aps graph line =
-  try 
-    print_endline ("Input line: " ^ line);
-    Scanf.sscanf line "n %s %d" (fun _ id -> new_node graph id)
-  with e ->
-    Printf.printf "Cannot read node in line - %s:\n%s\n%!" (Printexc.to_string e) line ;
-    failwith "read_node_aps"
 
 (* Reads a line with an arc with a cost. *)
 let read_arc_cost graph line =
@@ -78,7 +68,7 @@ let add_origin_destination graph =
       | id :: rest ->
         let updated_graph = 
           if (id >= 1 && id < 100) then 
-            new_arc current_graph {src=1000;tgt=id;lbl=1}
+            new_arc current_graph {src=1000;tgt=id;lbl=(1,0)}
             (*else if (id > 100 && id <1000) then
               new_arc current_graph {src=id;tgt=1001;lbl=1}
             *)

@@ -1,11 +1,21 @@
 % Graph handwritten
-% personne-id
+% person-id
 n Jean 1
 n Philippe 2
 n Claude 3
 n Francis 4
 n Guillaume 5
 n Jean-Philippe 6
+n Jean 7
+n Philippe 8
+n Claude 9
+n Francis 10
+n Guillaume 11
+n Jean-Philippe 12
+n Jean 13
+n Philippe 14
+n Claude 15
+
 
 % sport-id
 n Badminton 101 
@@ -17,25 +27,45 @@ n APPN 106
 n CTP 107 
 n Pétanque 108
 
-%personne-sport-capa-coût
-a 1 104 1 13
-a 1 102 1 15
-a 2 105 1 9
-a 2 101 1 6
-a 3 101 1 14
-a 3 104 1 11
-a 4 108 1 3
-a 4 103 1 18
-a 5 105 1 9
-a 5 108 1 8
-a 6 108 1 1
+%personne-sport-capa
+a 1 104 1
+a 1 102 1
+a 2 105 1
+a 2 101 1
+a 3 101 1
+a 3 104 1
+a 4 108 1
+a 4 103 1
+a 5 105 1
+a 5 108 1
+a 6 108 1
+a 6 101 1
+a 7 102 1
+a 7 103 1
+a 8 104 1
+a 8 105 1
+a 9 106 1
+a 9 107 1
+a 10 108 1
+a 10 101 1
+a 11 102 1
+a 11 103 1
+a 12 104 1
+a 12 105 1
+a 13 101 1
+a 13 102 1
+a 14 103 1
+a 14 104 1
+a 15 105 1
+a 15 106 1
 
-% sport-destination-capa
-a 101 1001 20 1
-a 102 1001 24 0
-a 103 1001 13 0
-a 104 1001 15 0
-a 105 1001 7 0
-a 106 1001 1 0
-a 107 1001 15 0
-a 108 1001 1 0
+
+% Sports to destination edges part, total=21
+a 101 1001 2
+a 102 1001 1
+a 103 1001 2
+a 104 1001 2
+a 105 1001 1
+a 106 1001 1
+a 107 1001 2
+a 108 1001 1
