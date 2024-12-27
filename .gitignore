@@ -7,3 +7,4 @@ outfile
 *.svg
 
 !resources/
+!resources/aps.svg
