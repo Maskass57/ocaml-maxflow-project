@@ -14,7 +14,7 @@ open aps.svg
 ```
 ## Medium project: Attribution des sports en APS
 Bipartite matching.
-Chaque noeud étudiant se voit attribué un arc entre la source et l'étudiant de capacité 1
+Chaque noeud étudiant se voit attribuer un arc entre la source et l'étudiant de capacité 1
 Chaque étudiant peut choisir autant de sports qu'il veut. Cela crée un arc entre l'étudiant et chaque sport.
 Chaque sport a une capacité limité. Notre algo donne de manière aléatoire une répartition des étudiants dans les sports
 en respectant obligatoirement leurs voeux.
@@ -28,6 +28,8 @@ make demo
 dot -Tsvg aps.dot > aps.svg
 open aps.svg
 ```
+<img src="resources/aps.svg" alt="Exemple" width="700"/>
+
 
 ## Better project: Max flow, min cost
 Les étudiants peuvent hiérarchiser leurs voeux. Cela sera pris en compte dans l'attribution de leurs voeux, via un graphe
