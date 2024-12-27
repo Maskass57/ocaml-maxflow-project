@@ -1,0 +1,41 @@
+% Graph handwritten
+% personne-id
+n Jean 1
+n Philippe 2
+n Claude 3
+n Francis 4
+n Guillaume 5
+n Jean-Philippe 6
+
+% sport-id
+n Badminton 101 
+n Basket 102 
+n Foot 103 
+n Rugby 104 
+n Danse 105
+n APPN 106
+n CTP 107 
+n Pétanque 108
+
+%personne-sport-capa-coût
+a 1 104 1 13
+a 1 102 1 15
+a 2 105 1 9
+a 2 101 1 6
+a 3 101 1 14
+a 3 104 1 11
+a 4 108 1 3
+a 4 103 1 18
+a 5 105 1 9
+a 5 108 1 8
+a 6 108 1 1
+
+% sport-destination-capa
+a 101 1001 20 1
+a 102 1001 24 0
+a 103 1001 13 0
+a 104 1001 15 0
+a 105 1001 7 0
+a 106 1001 1 0
+a 107 1001 15 0
+a 108 1001 1 0
