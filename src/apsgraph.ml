@@ -13,15 +13,15 @@ let read_node_aps graph line =
   try 
   print_endline ("Input line: " ^ line);
   Scanf.sscanf line "n %s %d" (fun _ id -> new_node graph id)
-  (*TODO: Map*)
   with e ->
     Printf.printf "Cannot read node in line - %s:\n%s\n%!" (Printexc.to_string e) line ;
     failwith "read_node_aps"
 
+    
 let read_arc_aps graph line =
   print_endline ("Input line: " ^ line);
-  try Scanf.sscanf line "a %d %d"
-        (fun src tgt -> new_arc (ensure (ensure graph src) tgt) { src ; tgt ; lbl=1 } )
+  try Scanf.sscanf line "a %d %d %d"
+        (fun src tgt lbl-> new_arc (ensure (ensure graph src) tgt) { src=src ; tgt=tgt ; lbl=lbl } )
   with e ->
     Printf.printf "Cannot read arc in line - %s:\n%s\n%!" (Printexc.to_string e) line ;
     failwith "read_arc_aps"
@@ -61,8 +61,21 @@ let from_file_aps path =
   final_graph
 
 let add_origin_destination graph =
-  let o_graph = new_node graph 1000 in 
-  let o_d_graph = new_node o_graph 1001 in 
+  let o_graph = 
+  try
+    new_node graph 1000 
+  with Graph_error _->
+    Printf.printf "Node origin already exists";
+    graph
+  in
+  let o_d_graph = 
+  try
+    new_node o_graph 1001
+  with Graph_error _-> 
+    Printf.printf "Node destination already exists";
+    o_graph
+  in
+
   let nodes = Graph.n_fold graph (fun acc id -> id :: acc) [] in
   
   let add_arcs final_graph nodes =
@@ -72,8 +85,9 @@ let add_origin_destination graph =
         let updated_graph = 
           if (id >= 1 && id < 100) then 
             new_arc current_graph {src=1000;tgt=id;lbl=1}
-          else if (id > 100 && id <1000) then
+          (*else if (id > 100 && id <1000) then
             new_arc current_graph {src=id;tgt=1001;lbl=1}
+            *)
           else 
             current_graph in
         add_arc_aux updated_graph rest  

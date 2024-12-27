@@ -2,7 +2,7 @@
 
 src?=0
 dst?=5
-graph?=sportvoeux.txt
+graph?=sportvoeux2.txt
 
 all: build
 
