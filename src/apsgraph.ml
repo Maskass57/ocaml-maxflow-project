@@ -60,5 +60,25 @@ let from_file_aps path =
   close_in infile ;
   final_graph
 
-
+let add_origin_destination graph =
+  let o_graph = new_node graph 1000 in 
+  let o_d_graph = new_node o_graph 1001 in 
+  let nodes = Graph.n_fold graph (fun acc id -> id :: acc) [] in
   
+  let add_arcs final_graph nodes =
+    let rec add_arc_aux current_graph = function
+      | [] -> current_graph 
+      | id :: rest ->
+        let updated_graph = 
+          if (id >= 1 && id < 100) then 
+            new_arc current_graph {src=1000;tgt=id;lbl=1}
+          else if (id > 100 && id <1000) then
+            new_arc current_graph {src=id;tgt=1001;lbl=1}
+          else 
+            current_graph in
+        add_arc_aux updated_graph rest  
+    in
+    add_arc_aux final_graph nodes in
+
+  add_arcs o_d_graph nodes
+;;

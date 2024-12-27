@@ -48,7 +48,8 @@ let () =
   *)
   (* Rewrite the graph that has been read. *)
   let aps = from_file_aps infile in
-  let aps_mapped = gmap aps (fun x -> string_of_int x) in
+  let aps_complete = add_origin_destination aps in
+  let aps_mapped = gmap aps_complete (fun x -> string_of_int x) in
 
   let () = write_file outfile aps_mapped in
 
@@ -59,7 +60,7 @@ let () =
   export "./joli.dot" fulkerson_joli;
   *)
 
-  export "./aps.dot" aps_mapped;
+  exportAPS "./aps.dot" aps_mapped;
   
   (*export "./export.dot" _ford_graph_mapped;
 
