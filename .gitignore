@@ -5,6 +5,7 @@ outfile
 .vscode/
 *.dot
 *.svg
+*.ocp-indent-tmp
 
 !resources/
 !resources/*.svg
