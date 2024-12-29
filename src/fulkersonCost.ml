@@ -103,25 +103,21 @@ let rec find_min_cost target = function
     then label_aux.cost 
     else find_min_cost target rest
 
-let rec find_min_flow graph minimum = function 
+let rec find_min_flow graph minimum (dijkstra_graph: int dijkstra_graph)= match (dijkstra_graph) with 
   | [] -> minimum 
   | [_] -> minimum
   | (node,_)::(node_aux,label_aux)::rest -> 
     let arc = List.find (fun {src=src;tgt=tgt;lbl=_} -> src=node && tgt=node_aux) (out_arcs graph node) in 
-    let new_minimum = min arc.lbl.cost minimum in 
+    let new_minimum = min arc.lbl.flow minimum in 
     find_min_flow graph new_minimum ((node_aux,label_aux)::rest)
 
-(*
-let rec updateEdgeGraph_cost gr dijkstraResult = 
-    let min_flow = find_min_flow gr max_int dijkstraResult in 
-    let edgegraphed = edgeGraph_cost gr in 
+let rec updateEdgeGraph_cost gr dijkstraResult min_flow = 
+    (*let min_flow = find_min_flow gr max_int dijkstraResult in*)
     match dijkstraResult with
     | (nodex,_)::(nodey,labely)::rest -> 
-        let arc = List.find (fun {src=src;tgt=tgt;lbl=lbl} -> src = nodex && tgt = nodey ) (out_arcs gr nodex) in
-        let gr1 = add_arc_cost edgegraphed nodex nodey ({flow = (-min_flow);cost=arc.lbl.cost}) in 
-        updateEdgeGraph_cost edgeGraph_cost (add_arc_cost gr1 nodex nodey ({flow = (min_flow);cost=-arc.lbl.cost})) (((nodey,labely)::rest),min_flow)
+        let arc = List.find (fun {src=src;tgt=tgt;lbl=_} -> src = nodex && tgt = nodey ) (out_arcs gr nodex) in
+        let gr1 = add_arc_cost gr nodex nodey ({flow = (-min_flow);cost=arc.lbl.cost}) in 
+        let gr2 = add_arc_cost gr1 nodex nodey ({flow = (min_flow);cost=(-arc.lbl.cost)}) in
+        updateEdgeGraph_cost gr2 (((nodey,labely)::rest)) min_flow
     | _x::[] -> gr
     | [] -> gr
-
-
-*)
