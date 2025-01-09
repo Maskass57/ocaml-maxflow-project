@@ -1,4 +1,6 @@
-OCAML project of LACAU Clément, Loubejac Jean-Philippe.
+OCAML project of :  
+- LACAU Clément  
+- Loubejac Jean-Philippe.  
 This project implements a sport attribution that could be used in attributing sports to INSA Toulouse's students.
 
 ## Building
