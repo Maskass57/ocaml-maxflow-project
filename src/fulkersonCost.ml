@@ -76,7 +76,7 @@ let update_neighbours graph list (node,label) =
 
 let get_node = function 
   | Some x -> x
-  | None -> failwith "aargh.."
+  | None -> failwith "get_node failed"
 
 let convert_dijkstra_to_fulkerson (node, dijkstra_label) =
   { flow = 0; (* Flow is not part of Dijkstra's algorithm, so it's initialized to 0 *)
