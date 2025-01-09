@@ -44,7 +44,7 @@ let partition_nodes graph =
         partition (origin, col1, id :: col2, destination) rest  (* Add to col2 : sports list *)
   in
   let nodes = Graph.n_fold graph (fun acc id -> id :: acc) [] in
-  partition (0, [], [], 0) nodes
+  partition (1000, [], [], 1001) nodes
 
 let from_file_aps path =
 

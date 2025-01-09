@@ -1,5 +1,4 @@
 open Graph
-open Printf
 open Apsgraph
 
 
@@ -44,7 +43,7 @@ let from_file_aps_cost path =
   close_in infile ;
   final_graph
 ;;
-let add_origin_destination graph =
+let add_origin_destination_cost graph =
   let o_graph = 
     try
       new_node graph 1000 

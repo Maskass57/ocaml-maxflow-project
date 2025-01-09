@@ -7,9 +7,14 @@ type input_graph =  input_label graph
 
 type fulkerson_label_cost = {flow : id; capa : id; cost: id}
 type fulkerson_graphs_cost = fulkerson_label_cost graph
-type node = id
 type edgegraph_label = {flow:id;cost:id}
 type edgegraph_cost = edgegraph_label graph
+
+(*
+  Dijkstra label, used in a hashtbl
+  Contains the cost to reach the node, the previous node, and if the node is marked.
+*)
+type 'a dijkstra_label = {cost: int; prev: 'a option; marked: bool}
 
 (**
    Create 2 arcs from the input arc.
@@ -57,11 +62,6 @@ let edgeGraph_cost (gr: fulkerson_graphs_cost) =
               let ngrb = add_arc_cost grb arc1.src arc1.tgt {flow = arc1.lbl.flow; cost=arc1.lbl.cost} in 
               add_arc_cost ngrb arc2.src arc2.tgt {flow = arc2.lbl.flow; cost=arc2.lbl.cost} ) (clone_nodes gr)
 
-(*
-  Dijkstra label, used in a hashtbl
-  Contains the cost to reach the node, the previous node, and if the node is marked.
-*)
-type 'a dijkstra_label = {cost: int; prev: 'a option; marked: bool}
 
 (**
    Initializes the hashtbl with the starting edgegraph_label graph
@@ -75,28 +75,21 @@ type 'a dijkstra_label = {cost: int; prev: 'a option; marked: bool}
    @param gr : input graph.
    @return : int.
 *)
-let rec count_nodes (graph: 'a graph)=
-  match graph with
-  | [] -> 0
-  | (_,_)::rest -> 1 + count_nodes rest 
+let count_nodes (graph: 'a graph)=
+  n_fold graph (fun _ acu -> acu+1) 0
 
 (**
    Initializes dijkstra hashtbl
-   @param gr : input graph.
+   @param graph : input graph.
    @return : Hashtbl.
 *)
-let initialize_dijkstra_hashtbl gr src = 
-  let hashtbl = Hashtbl.create (count_nodes gr) in
-  let rec loop = function 
-    | [] -> hashtbl
-    | (node,_)::rest -> 
-      if (node = src) then 
-        Hashtbl.add hashtbl node {cost=0;prev=None;marked=false}
-      else
-        Hashtbl.add hashtbl node {cost=max_int;prev=None;marked=false}
-    ; loop rest 
-  in 
-  loop gr
+let initialize_dijkstra_hashtbl graph src = 
+  let hashtbl = Hashtbl.create (count_nodes graph) in
+  n_iter graph (fun node -> 
+    if(node=src) 
+    then Hashtbl.add hashtbl node {cost=0;prev=None;marked=false} 
+    else Hashtbl.add hashtbl node {cost=max_int;prev=None;marked=false});
+    hashtbl
 
 (**
    Find the node with minimal cost in the hashtbl
@@ -149,7 +142,7 @@ let unOption = function
    @param tgt : node.
    @return : list (aka the path).
 *)  
-let rec reconstruct_path hashtbl tgt = 
+let reconstruct_path hashtbl tgt = 
   let rec reconstruct_path_aux local_dest acu = 
     let current_lbl = 
       Hashtbl.find hashtbl local_dest in 
