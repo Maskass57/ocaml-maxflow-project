@@ -152,7 +152,14 @@ let reconstruct_path hashtbl tgt =
   in 
   List.rev (reconstruct_path_aux tgt [])
 
-
+(**
+   Performs dijkstra path finding on a graph with a given start and target node.
+   This implementation is based on the used of the hashtbl
+   @param graph : edgegraph_label graph.
+   @param start : start node.
+   @param start : target node.
+   @return : list (aka the path).
+*) 
 let dijkstra graph start target = 
   let hashtbl = initialize_dijkstra_hashtbl graph start in 
 
@@ -170,7 +177,14 @@ let dijkstra graph start target =
   in 
   dijkstra_aux ()
 
-
+(**
+   Converts a edgegraph into a fulkerson_label_cost graph.
+   The new graph is built by recuperating nodes from start graph
+   and integrating the changes on arcs recuperated from the edgegraph_label graph.
+   @param startGraph : fulkerson_label_cost graph.
+   @param eGraph : edgegraph_label graph.
+   @return : fulkerson_label_cost graph, the graph returned.
+*) 
 let unEdgeGraph_cost startGraph eGraph =
   e_fold startGraph (fun acu x  -> 
       let capaInverse = match find_arc startGraph x.tgt x.src with
@@ -182,7 +196,11 @@ let unEdgeGraph_cost startGraph eGraph =
       then new_arc acu {src=x.src; tgt=x.tgt; lbl={flow=newVal; capa=x.lbl.capa;cost=x.lbl.cost}}
       else new_arc acu {src=x.src; tgt=x.tgt; lbl={flow=0; capa=x.lbl.capa;cost=x.lbl.cost}}) (clone_nodes startGraph)
 
-
+(**
+  Maps a fulkerson_graphs_cost into a path graph. 
+  @param gr : fulkerson_graphs_cost
+  @return : path graph.
+*) 
 let grapheJoli (gr:fulkerson_graphs_cost) = gmap gr (fun x -> string_of_int x.flow ^ "/" ^ string_of_int x.capa)
 
 let print_dijkstra_path path =
@@ -192,6 +210,13 @@ let print_dijkstra_path path =
   Printf.printf "Path found: [%s]\n" formatted_path
 
 
+(**
+  Find the minimal flow from the path found bu recuperating the data associated in the graph. 
+  @param graph : input graph
+  @param minimum : int, accumulator
+  @param dijkstra_path : node list
+  @return : path graph.
+*) 
 let rec find_min_flow graph minimum dijkstra_path= 
   match (dijkstra_path) with 
   |   [] -> minimum 
@@ -201,6 +226,13 @@ let rec find_min_flow graph minimum dijkstra_path=
     let new_minimum = min arc.lbl.flow minimum in 
     find_min_flow graph new_minimum (node_aux::rest)
 
+(**
+  Update the edgegraph_label graph thanks to the path found. 
+  @param gr : edgegraph_label graph
+  @param path : id list, dijkstra resul
+  @param min_flow : int, increment on the path
+  @return : edgegraph_label graph.
+*) 
 let rec updateEdgeGraph_cost gr path min_flow = 
   (*let min_flow = find_min_flow gr max_int dijkstraResult in*)
   match path with
@@ -212,6 +244,13 @@ let rec updateEdgeGraph_cost gr path min_flow =
   | _x::[] -> gr
   | [] -> gr
 
+(**
+  Fulkerson implementation adapted to a maxflow_mincost implementation. 
+  @param gr : input_label graph.
+  @param origin : source node
+  @param destination : target node
+  @return : fulkerson_label_cost graph
+*) 
 let fordFulkerson gr origin destination =
   let fulkerson = convertGraph_Cost gr in 
   let eGraph = edgeGraph_cost fulkerson in
