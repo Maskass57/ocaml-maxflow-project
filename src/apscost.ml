@@ -1,11 +1,12 @@
 open Graph
 open Apsgraph
+open FulkersonCost
 
 
 (* Reads a line with an arc with a cost. *)
 let read_arc_cost graph line =
   try Scanf.sscanf line "e %d %d %d %d@%%"
-        (fun src tgt lbl cost -> new_arc (ensure (ensure graph src) tgt) { src ; tgt ; lbl=(lbl,cost) } )
+        (fun src tgt lbl cost -> new_arc (ensure (ensure graph src) tgt) { src ; tgt ; lbl={capa=lbl;cost=cost} } )
   with e ->
     Printf.printf "Cannot read arc in line - %s:\n%s\n%!" (Printexc.to_string e) line ;
     failwith "from_file b"
@@ -60,19 +61,18 @@ let add_origin_destination_cost graph =
   in
 
   let nodes = Graph.n_fold graph (fun acc id -> id :: acc) [] in
-
   let add_arcs final_graph nodes =
     let rec add_arc_aux current_graph = function
       | [] -> current_graph 
       | id :: rest ->
         let updated_graph = 
           if (id >= 1 && id < 100) then 
-            new_arc current_graph {src=1000;tgt=id;lbl=(1,0)}
-            (*else if (id > 100 && id <1000) then
-              new_arc current_graph {src=id;tgt=1001;lbl=1}
-            *)
+            new_arc current_graph {src=1000;tgt=id;lbl={capa=1;cost=0}}
+          else if (id > 100 && id <1000) then
+            new_arc current_graph {src=id;tgt=1001;lbl={capa=1;cost=0}}
           else 
-            current_graph in
+            current_graph 
+          in
         add_arc_aux updated_graph rest  
     in
     add_arc_aux final_graph nodes in
