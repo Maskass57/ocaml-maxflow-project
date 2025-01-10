@@ -119,9 +119,9 @@ let update_neighbours graph hashtbl (node,cost) =
   let out_arcs = out_arcs graph node in 
 
   List.iter 
-    (fun {src=_;tgt=tgt;lbl={flow=_;cost=costArc}} -> 
+    (fun {src=_;tgt=tgt;lbl={flow=flowArc;cost=costArc}} -> 
        let foundLabel = Hashtbl.find hashtbl tgt in
-       if (cost + costArc < foundLabel.cost) then
+       if (cost + costArc < foundLabel.cost && (not foundLabel.marked) && flowArc>0) then
          Hashtbl.replace hashtbl tgt {cost=cost + costArc; prev = Some node ; marked=false}
        else 
          ()
@@ -150,7 +150,7 @@ let reconstruct_path hashtbl tgt =
     | None -> acu 
     | Some (node) -> reconstruct_path_aux node (node::acu)
   in 
-  List.rev (reconstruct_path_aux tgt [])
+  reconstruct_path_aux tgt [tgt]
 
 (**
    Performs dijkstra path finding on a graph with a given start and target node.
@@ -238,10 +238,14 @@ let rec updateEdgeGraph_cost gr path min_flow =
   match path with
   | nodex::nodey::rest -> 
     let arc = List.find (fun {src=src;tgt=tgt;lbl=_} -> src = nodex && tgt = nodey ) (out_arcs gr nodex) in
-    let gr1 = add_arc_cost gr nodex nodey ({flow = (-min_flow);cost=arc.lbl.cost}) in 
-    let gr2 = add_arc_cost gr1 nodex nodey ({flow = (min_flow);cost=(-arc.lbl.cost)}) in
+    print_endline ("src: "^string_of_int arc.src^" tgt: "^string_of_int arc.tgt^" flow: " ^ string_of_int arc.lbl.flow);
+    let gr1 = add_arc_cost gr nodex nodey {flow = (-min_flow);cost=arc.lbl.cost} in 
+    let gr2 = add_arc_cost gr1 nodey nodex {flow = (min_flow);cost=(-arc.lbl.cost)} in
+    let arc_new = List.find (fun {src=src;tgt=tgt;lbl=_} -> src = nodex && tgt = nodey ) (out_arcs gr2 nodex) in
+    print_endline ("src: "^string_of_int arc_new.src^" tgt: "^string_of_int arc_new.tgt^" flow: " ^ string_of_int arc_new.lbl.flow);
+
     updateEdgeGraph_cost gr2 ((nodey::rest)) min_flow
-  | _x::[] -> gr
+  | _::[] -> gr
   | [] -> gr
 
 (**
@@ -257,14 +261,13 @@ let fordFulkerson gr origin destination =
 
   let mappedEGraph = gmap eGraph (fun x -> string_of_int x.flow ^ "-" ^ string_of_int x.cost) in
   export ("./test.dot") mappedEGraph;
-
   let rec fordFulkersonAux gr1 i= 
     let path = dijkstra gr1 origin destination in 
     let min_flow = find_min_flow gr1 max_int path in
     let temp = unEdgeGraph_cost fulkerson eGraph in
     let joli = grapheJoli temp in
     export ("./" ^ (string_of_int i) ^ ".dot") joli;
-
+    print_endline (string_of_int min_flow);
     print_dijkstra_path path;
     fordFulkersonAux (updateEdgeGraph_cost gr1 path min_flow) (i+1) 
   in
