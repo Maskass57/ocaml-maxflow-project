@@ -3,6 +3,8 @@ OCAML project of :
 - Loubejac Jean-Philippe.  
 This project implements a sport attribution that could be used in attributing sports to INSA Toulouse's students.
 
+NOTE: TOUTES LES VERSIONS ATTENDUES SONT FONCTIONNELLES: minimal, medium et better project.  
+
 ## Building
 ```bash
 make clean
