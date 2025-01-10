@@ -1,0 +1,710 @@
+
+   🚨  COMPILING  🚨 
+
+dune build src/ftest.exe
+ls src/*.exe > /dev/null && ln -fs src/*.exe .
+
+   ⚡  EXECUTING  ⚡
+
+./ftest.exe graphs/../graphs/sportvoeux6.txt 0 5 outfile
+Input line: n Alice 1
+Input line: n Bernard 2
+Input line: n Claire 3
+Input line: n Denis 4
+Input line: n Eva 5
+Input line: n François 6
+Input line: n Gérard 7
+Input line: n Hélène 8
+Input line: n Isabelle 9
+Input line: n Julien 10
+Input line: n Karim 11
+Input line: n Léa 12
+Input line: n Marc 13
+Input line: n Nadia 14
+Input line: n Olivier 15
+Input line: n Pauline 16
+Input line: n Quentin 17
+Input line: n Rachid 18
+Input line: n Sophie 19
+Input line: n Thomas 20
+Input line: n Ulysse 21
+Input line: n Victor 22
+Input line: n Wendy 23
+Input line: n Xavier 24
+Input line: n Yasmine 25
+Input line: n Zacharie 26
+Input line: n Amandine 27
+Input line: n Bastien 28
+Input line: n Charlotte 29
+Input line: n Damien 30
+Input line: n Élise 31
+Input line: n Fabien 32
+Input line: n Gaëlle 33
+Input line: n Hugo 34
+Input line: n Isabelle 35
+Input line: n Jérôme 36
+Input line: n Karine 37
+Input line: n Léon 38
+Input line: n Mathieu 39
+Input line: n Noé 40
+Input line: n Olivia 41
+Input line: n Pierre 42
+Input line: n Quentin 43
+Input line: n Rémy 44
+Input line: n Stéphane 45
+Input line: n Thérèse 46
+Input line: n Ugo 47
+Input line: n Valérie 48
+Input line: n Wendy 49
+Input line: n Xavier 50
+Input line: n Yves 51
+Input line: n Zoé 52
+Input line: n Amélie 53
+Input line: n Benoit 54
+Input line: n Claire 55
+Input line: n Denis 56
+Input line: n Elodie 57
+Input line: n Fanny 58
+Input line: n Georges 59
+Input line: n Hugo 60
+Input line: n Badminton 101
+Input line: n Basket 102
+Input line: n Foot 103
+Input line: n Rugby 104
+Input line: n Danse 105
+Input line: n APPN 106
+Input line: n CTP 107
+Input line: n Pétanque 108
+Input line: a 1 104 1 1  % Choix 1 pour Alice : Rugby avec coût 1
+Input line: a 1 102 1 2  % Choix 2 pour Alice : Basket avec coût 2
+Input line: a 1 103 1 3  % Choix 3 pour Alice : Foot avec coût 3
+Input line: a 2 105 1 1  % Choix 1 pour Bernard : Danse avec coût 1
+Input line: a 2 101 1 2  % Choix 2 pour Bernard : Badminton avec coût 2
+Input line: a 2 102 1 3  % Choix 3 pour Bernard : Basket avec coût 3
+Input line: a 3 103 1 1  % Choix 1 pour Claire : Foot avec coût 1
+Input line: a 3 104 1 2  % Choix 2 pour Claire : Rugby avec coût 2
+Input line: a 3 105 1 3  % Choix 3 pour Claire : Danse avec coût 3
+Input line: a 4 108 1 1  % Choix 1 pour Denis : Pétanque avec coût 1
+Input line: a 4 103 1 2  % Choix 2 pour Denis : Foot avec coût 2
+Input line: a 4 104 1 3  % Choix 3 pour Denis : Rugby avec coût 3
+Input line: a 5 105 1 1  % Choix 1 pour Eva : Danse avec coût 1
+Input line: a 5 108 1 2  % Choix 2 pour Eva : Pétanque avec coût 2
+Input line: a 5 108 1 3  % Choix 3 pour Eva : Pétanque avec coût 3 (répétition pour augmenter le coût de l'option)
+Input line: a 6 102 1 1  % Choix 1 pour François : Basket avec coût 1
+Input line: a 6 103 1 2  % Choix 2 pour François : Foot avec coût 2
+Input line: a 6 104 1 3  % Choix 3 pour François : Rugby avec coût 3
+Input line: a 7 101 1 1  % Choix 1 pour Gérard : Badminton avec coût 1
+Input line: a 7 102 1 2  % Choix 2 pour Gérard : Basket avec coût 2
+Input line: a 7 103 1 3  % Choix 3 pour Gérard : Foot avec coût 3
+Input line: a 8 104 1 1  % Choix 1 pour Hélène : Rugby avec coût 1
+Input line: a 8 105 1 2  % Choix 2 pour Hélène : Danse avec coût 2
+Input line: a 8 108 1 3  % Choix 3 pour Hélène : Pétanque avec coût 3
+Input line: a 9 103 1 1  % Choix 1 pour Isabelle : Foot avec coût 1
+Input line: a 9 105 1 2  % Choix 2 pour Isabelle : Danse avec coût 2
+Input line: a 9 108 1 3  % Choix 3 pour Isabelle : Pétanque avec coût 3
+Input line: a 10 101 1 1  % Choix 1 pour Julien : Badminton avec coût 1
+Input line: a 10 102 1 2  % Choix 2 pour Julien : Basket avec coût 2
+Input line: a 10 104 1 3  % Choix 3 pour Julien : Rugby avec coût 3
+Input line: a 11 104 1 1  % Choix 1 pour Karim : Rugby avec coût 1
+Input line: a 11 102 1 2  % Choix 2 pour Karim : Basket avec coût 2
+Input line: a 11 103 1 3  % Choix 3 pour Karim : Foot avec coût 3
+Input line: a 12 105 1 1  % Choix 1 pour Léa : Danse avec coût 1
+Input line: a 12 108 1 2  % Choix 2 pour Léa : Pétanque avec coût 2
+Input line: a 12 102 1 3  % Choix 3 pour Léa : Basket avec coût 3
+Input line: a 13 104 1 1  % Choix 1 pour Marc : Rugby avec coût 1
+Input line: a 13 102 1 2  % Choix 2 pour Marc : Basket avec coût 2
+Input line: a 13 105 1 3  % Choix 3 pour Marc : Danse avec coût 3
+Input line: a 14 108 1 1  % Choix 1 pour Nadia : Pétanque avec coût 1
+Input line: a 14 103 1 2  % Choix 2 pour Nadia : Foot avec coût 2
+Input line: a 14 102 1 3  % Choix 3 pour Nadia : Basket avec coût 3
+Input line: a 15 105 1 1  % Choix 1 pour Olivier : Danse avec coût 1
+Input line: a 15 101 1 2  % Choix 2 pour Olivier : Badminton avec coût 2
+Input line: a 15 103 1 3  % Choix 3 pour Olivier : Foot avec coût 3
+Input line: a 16 104 1 1  % Choix 1 pour Pauline : Rugby avec coût 1
+Input line: a 16 102 1 2  % Choix 2 pour Pauline : Basket avec coût 2
+Input line: a 16 105 1 3  % Choix 3 pour Pauline : Danse avec coût 3
+Input line: a 17 103 1 1  % Choix 1 pour Quentin : Foot avec coût 1
+Input line: a 17 105 1 2  % Choix 2 pour Quentin : Danse avec coût 2
+Input line: a 17 102 1 3  % Choix 3 pour Quentin : Basket avec coût 3
+Input line: a 18 104 1 1  % Choix 1 pour Rachid : Rugby avec coût 1
+Input line: a 18 101 1 2  % Choix 2 pour Rachid : Badminton avec coût 2
+Input line: a 18 105 1 3  % Choix 3 pour Rachid : Danse avec coût 3
+Input line: a 19 102 1 1  % Choix 1 pour Sophie : Basket avec coût 1
+Input line: a 19 103 1 2  % Choix 2 pour Sophie : Foot avec coût 2
+Input line: a 19 105 1 3  % Choix 3 pour Sophie : Danse avec coût 3
+Input line: a 20 103 1 1  % Choix 1 pour Thomas : Foot avec coût 1
+Input line: a 20 104 1 2  % Choix 2 pour Thomas : Rugby avec coût 2
+Input line: a 20 102 1 3  % Choix 3 pour Thomas : Basket avec coût 3
+Input line: a 21 101 1 1  % Choix 1 pour Ulysse : Badminton avec coût 1
+Input line: a 21 104 1 2  % Choix 2 pour Ulysse : Rugby avec coût 2
+Input line: a 21 105 1 3  % Choix 3 pour Ulysse : Danse avec coût 3
+Input line: a 22 102 1 1  % Choix 1 pour Victor : Basket avec coût 1
+Input line: a 22 103 1 2  % Choix 2 pour Victor : Foot avec coût 2
+Input line: a 22 104 1 3  % Choix 3 pour Victor : Rugby avec coût 3
+Input line: a 23 104 1 1  % Choix 1 pour Wendy : Rugby avec coût 1
+Input line: a 23 103 1 2  % Choix 2 pour Wendy : Foot avec coût 2
+Input line: a 23 105 1 3  % Choix 3 pour Wendy : Danse avec coût 3
+Input line: a 24 101 1 1  % Choix 1 pour Xavier : Badminton avec coût 1
+Input line: a 24 102 1 2  % Choix 2 pour Xavier : Basket avec coût 2
+Input line: a 24 104 1 3  % Choix 3 pour Xavier : Rugby avec coût 3
+Input line: a 25 105 1 1  % Choix 1 pour Yasmine : Danse avec coût 1
+Input line: a 25 108 1 2  % Choix 2 pour Yasmine : Pétanque avec coût 2
+Input line: a 25 104 1 3  % Choix 3 pour Yasmine : Rugby avec coût 3
+Input line: a 26 108 1 1  % Choix 1 pour Zacharie : Pétanque avec coût 1
+Input line: a 26 102 1 2  % Choix 2 pour Zacharie : Basket avec coût 2
+Input line: a 26 101 1 3  % Choix 3 pour Zacharie : Badminton avec coût 3
+Input line: a 27 104 1 1  % Choix 1 pour Amandine : Rugby avec coût 1
+Input line: a 27 102 1 2  % Choix 2 pour Amandine : Basket avec coût 2
+Input line: a 27 103 1 3  % Choix 3 pour Amandine : Foot avec coût 3
+Input line: a 28 105 1 1  % Choix 1 pour Bastien : Danse avec coût 1
+Input line: a 28 101 1 2  % Choix 2 pour Bastien : Badminton avec coût 2
+Input line: a 28 104 1 3  % Choix 3 pour Bastien : Rugby avec coût 3
+Input line: a 29 103 1 1  % Choix 1 pour Charlotte : Foot avec coût 1
+Input line: a 29 104 1 2  % Choix 2 pour Charlotte : Rugby avec coût 2
+Input line: a 29 102 1 3  % Choix 3 pour Charlotte : Basket avec coût 3
+Input line: a 30 102 1 1  % Choix 1 pour Damien : Basket avec coût 1
+Input line: a 30 103 1 2  % Choix 2 pour Damien : Foot avec coût 2
+Input line: a 30 105 1 3  % Choix 3 pour Damien : Danse avec coût 3
+Input line: a 31 108 1 1  % Choix 1 pour Élise : Pétanque avec coût 1
+Input line: a 31 103 1 2  % Choix 2 pour Élise : Foot avec coût 2
+Input line: a 31 105 1 3  % Choix 3 pour Élise : Danse avec coût 3
+Input line: a 32 104 1 1  % Choix 1 pour Fabien : Rugby avec coût 1
+Input line: a 32 102 1 2  % Choix 2 pour Fabien : Basket avec coût 2
+Input line: a 32 105 1 3  % Choix 3 pour Fabien : Danse avec coût 3
+Input line: a 33 105 1 1  % Choix 1 pour Gaëlle : Danse avec coût 1
+Input line: a 33 102 1 2  % Choix 2 pour Gaëlle : Basket avec coût 2
+Input line: a 33 103 1 3  % Choix 3 pour Gaëlle : Foot avec coût 3
+Input line: a 34 104 1 1  % Choix 1 pour Hugo : Rugby avec coût 1
+Input line: a 34 102 1 2  % Choix 2 pour Hugo : Basket avec coût 2
+Input line: a 34 105 1 3  % Choix 3 pour Hugo : Danse avec coût 3
+Input line: a 35 103 1 1  % Choix 1 pour Isabelle : Foot avec coût 1
+Input line: a 35 105 1 2  % Choix 2 pour Isabelle : Danse avec coût 2
+Input line: a 35 108 1 3  % Choix 3 pour Isabelle : Pétanque avec coût 3
+Input line: a 36 101 1 1  % Choix 1 pour Jérôme : Badminton avec coût 1
+Input line: a 36 102 1 2  % Choix 2 pour Jérôme : Basket avec coût 2
+Input line: a 36 104 1 3  % Choix 3 pour Jérôme : Rugby avec coût 3
+Input line: a 37 108 1 1  % Choix 1 pour Karine : Pétanque avec coût 1
+Input line: a 37 104 1 2  % Choix 2 pour Karine : Rugby avec coût 2
+Input line: a 37 102 1 3  % Choix 3 pour Karine : Basket avec coût 3
+Input line: a 38 105 1 1  % Choix 1 pour Léon : Danse avec coût 1
+Input line: a 38 104 1 2  % Choix 2 pour Léon : Rugby avec coût 2
+Input line: a 38 102 1 3  % Choix 3 pour Léon : Basket avec coût 3
+Input line: a 39 102 1 1  % Choix 1 pour Mathieu : Basket avec coût 1
+Input line: a 39 105 1 2  % Choix 2 pour Mathieu : Danse avec coût 2
+Input line: a 39 103 1 3  % Choix 3 pour Mathieu : Foot avec coût 3
+Input line: a 40 101 1 1  % Choix 1 pour Noé : Badminton avec coût 1
+Input line: a 40 102 1 2  % Choix 2 pour Noé : Basket avec coût 2
+Input line: a 40 104 1 3  % Choix 3 pour Noé : Rugby avec coût 3
+Input line: a 41 105 1 1  % Choix 1 pour Olivia : Danse avec coût 1
+Input line: a 41 102 1 2  % Choix 2 pour Olivia : Basket avec coût 2
+Input line: a 41 103 1 3  % Choix 3 pour Olivia : Foot avec coût 3
+Input line: a 42 104 1 1  % Choix 1 pour Pierre : Rugby avec coût 1
+Input line: a 42 102 1 2  % Choix 2 pour Pierre : Basket avec coût 2
+Input line: a 42 105 1 3  % Choix 3 pour Pierre : Danse avec coût 3
+Input line: a 43 103 1 1  % Choix 1 pour Quentin : Foot avec coût 1
+Input line: a 43 104 1 2  % Choix 2 pour Quentin : Rugby avec coût 2
+Input line: a 43 102 1 3  % Choix 3 pour Quentin : Basket avec coût 3
+Input line: a 44 101 1 1  % Choix 1 pour Rémy : Badminton avec coût 1
+Input line: a 44 102 1 2  % Choix 2 pour Rémy : Basket avec coût 2
+Input line: a 44 104 1 3  % Choix 3 pour Rémy : Rugby avec coût 3
+Input line: a 45 105 1 1  % Choix 1 pour Stéphane : Danse avec coût 1
+Input line: a 45 108 1 2  % Choix 2 pour Stéphane : Pétanque avec coût 2
+Input line: a 45 103 1 3  % Choix 3 pour Stéphane : Foot avec coût 3
+Input line: a 46 102 1 1  % Choix 1 pour Thérèse : Basket avec coût 1
+Input line: a 46 105 1 2  % Choix 2 pour Thérèse : Danse avec coût 2
+Input line: a 46 103 1 3  % Choix 3 pour Thérèse : Foot avec coût 3
+Input line: a 47 104 1 1  % Choix 1 pour Ugo : Rugby avec coût 1
+Input line: a 47 103 1 2  % Choix 2 pour Ugo : Foot avec coût 2
+Input line: a 47 105 1 3  % Choix 3 pour Ugo : Danse avec coût 3
+Input line: a 48 105 1 1  % Choix 1 pour Valérie : Danse avec coût 1
+Input line: a 48 102 1 2  % Choix 2 pour Valérie : Basket avec coût 2
+Input line: a 48 104 1 3  % Choix 3 pour Valérie : Rugby avec coût 3
+Input line: a 49 103 1 1  % Choix 1 pour Wendy : Foot avec coût 1
+Input line: a 49 105 1 2  % Choix 2 pour Wendy : Danse avec coût 2
+Input line: a 49 102 1 3  % Choix 3 pour Wendy : Basket avec coût 3
+Input line: a 50 101 1 1  % Choix 1 pour Xavier : Badminton avec coût 1
+Input line: a 50 104 1 2  % Choix 2 pour Xavier : Rugby avec coût 2
+Input line: a 50 105 1 3  % Choix 3 pour Xavier : Danse avec coût 3
+Input line: a 51 108 1 1  % Choix 1 pour Yves : Pétanque avec coût 1
+Input line: a 51 102 1 2  % Choix 2 pour Yves : Basket avec coût 2
+Input line: a 51 101 1 3  % Choix 3 pour Yves : Badminton avec coût 3
+Input line: a 52 103 1 1  % Choix 1 pour Zoé : Foot avec coût 1
+Input line: a 52 102 1 2  % Choix 2 pour Zoé : Basket avec coût 2
+Input line: a 52 104 1 3  % Choix 3 pour Zoé : Rugby avec coût 3
+Input line: a 53 104 1 1  % Choix 1 pour Adrien : Rugby avec coût 1
+Input line: a 53 102 1 2  % Choix 2 pour Adrien : Basket avec coût 2
+Input line: a 53 105 1 3  % Choix 3 pour Adrien : Danse avec coût 3
+Input line: a 54 103 1 1  % Choix 1 pour Bastien : Foot avec coût 1
+Input line: a 54 105 1 2  % Choix 2 pour Bastien : Danse avec coût 2
+Input line: a 54 108 1 3  % Choix 3 pour Bastien : Pétanque avec coût 3
+Input line: a 55 101 1 1  % Choix 1 pour Camille : Badminton avec coût 1
+Input line: a 55 102 1 2  % Choix 2 pour Camille : Basket avec coût 2
+Input line: a 55 104 1 3  % Choix 3 pour Camille : Rugby avec coût 3
+Input line: a 56 108 1 1  % Choix 1 pour David : Pétanque avec coût 1
+Input line: a 56 103 1 2  % Choix 2 pour David : Foot avec coût 2
+Input line: a 56 105 1 3  % Choix 3 pour David : Danse avec coût 3
+Input line: a 57 104 1 1  % Choix 1 pour Élise : Rugby avec coût 1
+Input line: a 57 102 1 2  % Choix 2 pour Élise : Basket avec coût 2
+Input line: a 57 105 1 3  % Choix 3 pour Élise : Danse avec coût 3
+Input line: a 58 101 1 1  % Choix 1 pour François : Badminton avec coût 1
+Input line: a 58 102 1 2  % Choix 2 pour François : Basket avec coût 2
+Input line: a 58 104 1 3  % Choix 3 pour François : Rugby avec coût 3
+Input line: a 59 103 1 1  % Choix 1 pour Giselle : Foot avec coût 1
+Input line: a 59 104 1 2  % Choix 2 pour Giselle : Rugby avec coût 2
+Input line: a 59 102 1 3  % Choix 3 pour Giselle : Basket avec coût 3
+Input line: a 60 105 1 1  % Choix 1 pour Hugo : Danse avec coût 1
+Input line: a 60 102 1 2  % Choix 2 pour Hugo : Basket avec coût 2
+Input line: a 60 103 1 3  % Choix 3 pour Hugo : Foot avec coût 3
+Input line: a 101 1001 20 0  % Capacité 20 pour Badminton
+Input line: a 102 1001 10 0  % Capacité 10 pour Basket
+Input line: a 103 1001 20 0  % Capacité 20 pour Foot
+Input line: a 104 1001 10 0  % Capacité 10 pour Rugby
+Input line: a 105 1001 10 0  % Capacité 10 pour Danse
+Input line: a 106 1001 2 0  % Capacité 2 pour APPN
+Input line: a 107 1001 1 0  % Capacité 1 pour CTP
+Input line: a 108 1001 2 0  % Capacité 2 pour Pétanque
+Node destination already exists1
+Path found: [1000 -> 2 -> 105 -> 1001]
+1
+Path found: [1000 -> 41 -> 105 -> 1001]
+1
+Path found: [1000 -> 33 -> 105 -> 1001]
+1
+Path found: [1000 -> 5 -> 105 -> 1001]
+1
+Path found: [1000 -> 28 -> 105 -> 1001]
+1
+Path found: [1000 -> 48 -> 105 -> 1001]
+1
+Path found: [1000 -> 38 -> 105 -> 1001]
+1
+Path found: [1000 -> 60 -> 105 -> 1001]
+1
+Path found: [1000 -> 45 -> 105 -> 1001]
+1
+Path found: [1000 -> 12 -> 105 -> 1001]
+1
+Path found: [1000 -> 7 -> 101 -> 1001]
+1
+Path found: [1000 -> 10 -> 101 -> 1001]
+1
+Path found: [1000 -> 44 -> 101 -> 1001]
+1
+Path found: [1000 -> 58 -> 101 -> 1001]
+1
+Path found: [1000 -> 55 -> 101 -> 1001]
+1
+Path found: [1000 -> 40 -> 101 -> 1001]
+1
+Path found: [1000 -> 36 -> 101 -> 1001]
+1
+Path found: [1000 -> 21 -> 101 -> 1001]
+1
+Path found: [1000 -> 24 -> 101 -> 1001]
+1
+Path found: [1000 -> 50 -> 101 -> 1001]
+1
+Path found: [1000 -> 39 -> 102 -> 1001]
+1
+Path found: [1000 -> 46 -> 102 -> 1001]
+1
+Path found: [1000 -> 22 -> 102 -> 1001]
+1
+Path found: [1000 -> 6 -> 102 -> 1001]
+1
+Path found: [1000 -> 19 -> 102 -> 1001]
+1
+Path found: [1000 -> 30 -> 102 -> 1001]
+1
+Path found: [1000 -> 20 -> 103 -> 1001]
+1
+Path found: [1000 -> 43 -> 103 -> 1001]
+1
+Path found: [1000 -> 29 -> 103 -> 1001]
+1
+Path found: [1000 -> 35 -> 103 -> 1001]
+1
+Path found: [1000 -> 59 -> 103 -> 1001]
+1
+Path found: [1000 -> 17 -> 103 -> 1001]
+1
+Path found: [1000 -> 9 -> 103 -> 1001]
+1
+Path found: [1000 -> 3 -> 103 -> 1001]
+1
+Path found: [1000 -> 54 -> 103 -> 1001]
+1
+Path found: [1000 -> 49 -> 103 -> 1001]
+1
+Path found: [1000 -> 52 -> 103 -> 1001]
+1
+Path found: [1000 -> 42 -> 104 -> 1001]
+1
+Path found: [1000 -> 47 -> 104 -> 1001]
+1
+Path found: [1000 -> 53 -> 104 -> 1001]
+1
+Path found: [1000 -> 34 -> 104 -> 1001]
+1
+Path found: [1000 -> 27 -> 104 -> 1001]
+1
+Path found: [1000 -> 32 -> 104 -> 1001]
+1
+Path found: [1000 -> 13 -> 104 -> 1001]
+1
+Path found: [1000 -> 11 -> 104 -> 1001]
+1
+Path found: [1000 -> 57 -> 104 -> 1001]
+1
+Path found: [1000 -> 16 -> 104 -> 1001]
+1
+Path found: [1000 -> 37 -> 108 -> 1001]
+1
+Path found: [1000 -> 51 -> 108 -> 1001]
+1
+Path found: [1000 -> 15 -> 101 -> 1001]
+1
+Path found: [1000 -> 18 -> 101 -> 1001]
+1
+Path found: [1000 -> 25 -> 105 -> 2 -> 101 -> 1001]
+1
+Path found: [1000 -> 26 -> 102 -> 1001]
+1
+Path found: [1000 -> 1 -> 102 -> 1001]
+1
+Path found: [1000 -> 23 -> 104 -> 42 -> 102 -> 1001]
+1
+Path found: [1000 -> 8 -> 104 -> 53 -> 102 -> 1001]
+1
+Path found: [1000 -> 31 -> 103 -> 1001]
+1
+Path found: [1000 -> 56 -> 103 -> 1001]
+1
+Path found: [1000 -> 14 -> 103 -> 1001]
+1
+Path found: [1000 -> 4 -> 103 -> 1001]
+
+   🥁  RESULT (content of outfile)  🥁
+
+% This is a graph.
+
+n 200 300 1
+n 200 200 2
+n 200 400 3
+n 380 300 4
+n 380 200 5
+n 380 400 6
+n 380 100 7
+n 380 500 8
+n 560 300 9
+n 560 200 10
+n 560 400 11
+n 560 100 12
+n 560 500 13
+n 560 0 14
+n 740 300 15
+n 740 200 16
+n 740 400 17
+n 740 100 18
+n 740 500 19
+n 740 0 20
+n 740 600 21
+n 740 -100 22
+n 920 300 23
+n 920 200 24
+n 920 400 25
+n 920 100 26
+n 920 500 27
+n 920 0 28
+n 920 600 29
+n 920 -100 30
+n 920 700 31
+n 920 -200 32
+n 1100 300 33
+n 1100 200 34
+n 1100 400 35
+n 1100 100 36
+n 1100 500 37
+n 1100 0 38
+n 1100 600 39
+n 1100 -100 40
+n 1100 700 41
+n 1100 -200 42
+n 1100 800 43
+n 1100 -300 44
+n 1280 300 45
+n 1280 200 46
+n 1280 400 47
+n 1280 100 48
+n 1280 500 49
+n 1280 0 50
+n 1280 600 51
+n 1280 -100 52
+n 1280 700 53
+n 1280 -200 54
+n 1280 800 55
+n 1280 -300 56
+n 1280 900 57
+n 1280 -400 58
+n 1460 300 59
+n 1460 200 60
+n 1820 800 101
+n 1820 -300 102
+n 1820 900 103
+n 1820 -400 104
+n 1820 1000 105
+n 1820 -500 106
+n 1820 1100 107
+n 1820 -600 108
+n 5960 -200 1000
+n 5960 800 1001
+
+e 1 104 0 0/1
+e 1 102 1 1/1
+e 1 103 2 0/1
+e 2 105 3 0/1
+e 2 101 4 1/1
+e 2 102 5 0/1
+e 3 103 6 1/1
+e 3 104 7 0/1
+e 3 105 8 0/1
+e 4 108 9 0/1
+e 4 103 10 1/1
+e 4 104 11 0/1
+e 5 105 12 1/1
+e 5 108 13 0/1
+e 6 102 14 1/1
+e 6 103 15 0/1
+e 6 104 16 0/1
+e 7 101 17 1/1
+e 7 102 18 0/1
+e 7 103 19 0/1
+e 8 104 20 1/1
+e 8 105 21 0/1
+e 8 108 22 0/1
+e 9 103 23 1/1
+e 9 105 24 0/1
+e 9 108 25 0/1
+e 10 101 26 1/1
+e 10 102 27 0/1
+e 10 104 28 0/1
+e 11 104 29 1/1
+e 11 102 30 0/1
+e 11 103 31 0/1
+e 12 105 32 1/1
+e 12 108 33 0/1
+e 12 102 34 0/1
+e 13 104 35 1/1
+e 13 102 36 0/1
+e 13 105 37 0/1
+e 14 108 38 0/1
+e 14 103 39 1/1
+e 14 102 40 0/1
+e 15 105 41 0/1
+e 15 101 42 1/1
+e 15 103 43 0/1
+e 16 104 44 1/1
+e 16 102 45 0/1
+e 16 105 46 0/1
+e 17 103 47 1/1
+e 17 105 48 0/1
+e 17 102 49 0/1
+e 18 104 50 0/1
+e 18 101 51 1/1
+e 18 105 52 0/1
+e 19 102 53 1/1
+e 19 103 54 0/1
+e 19 105 55 0/1
+e 20 103 56 1/1
+e 20 104 57 0/1
+e 20 102 58 0/1
+e 21 101 59 1/1
+e 21 104 60 0/1
+e 21 105 61 0/1
+e 22 102 62 1/1
+e 22 103 63 0/1
+e 22 104 64 0/1
+e 23 104 65 1/1
+e 23 103 66 0/1
+e 23 105 67 0/1
+e 24 101 68 1/1
+e 24 102 69 0/1
+e 24 104 70 0/1
+e 25 105 71 1/1
+e 25 108 72 0/1
+e 25 104 73 0/1
+e 26 108 74 0/1
+e 26 102 75 1/1
+e 26 101 76 0/1
+e 27 104 77 1/1
+e 27 102 78 0/1
+e 27 103 79 0/1
+e 28 105 80 1/1
+e 28 101 81 0/1
+e 28 104 82 0/1
+e 29 103 83 1/1
+e 29 104 84 0/1
+e 29 102 85 0/1
+e 30 102 86 1/1
+e 30 103 87 0/1
+e 30 105 88 0/1
+e 31 108 89 0/1
+e 31 103 90 1/1
+e 31 105 91 0/1
+e 32 104 92 1/1
+e 32 102 93 0/1
+e 32 105 94 0/1
+e 33 105 95 1/1
+e 33 102 96 0/1
+e 33 103 97 0/1
+e 34 104 98 1/1
+e 34 102 99 0/1
+e 34 105 100 0/1
+e 35 103 101 1/1
+e 35 105 102 0/1
+e 35 108 103 0/1
+e 36 101 104 1/1
+e 36 102 105 0/1
+e 36 104 106 0/1
+e 37 108 107 1/1
+e 37 104 108 0/1
+e 37 102 109 0/1
+e 38 105 110 1/1
+e 38 104 111 0/1
+e 38 102 112 0/1
+e 39 102 113 1/1
+e 39 105 114 0/1
+e 39 103 115 0/1
+e 40 101 116 1/1
+e 40 102 117 0/1
+e 40 104 118 0/1
+e 41 105 119 1/1
+e 41 102 120 0/1
+e 41 103 121 0/1
+e 42 104 122 0/1
+e 42 102 123 1/1
+e 42 105 124 0/1
+e 43 103 125 1/1
+e 43 104 126 0/1
+e 43 102 127 0/1
+e 44 101 128 1/1
+e 44 102 129 0/1
+e 44 104 130 0/1
+e 45 105 131 1/1
+e 45 108 132 0/1
+e 45 103 133 0/1
+e 46 102 134 1/1
+e 46 105 135 0/1
+e 46 103 136 0/1
+e 47 104 137 1/1
+e 47 103 138 0/1
+e 47 105 139 0/1
+e 48 105 140 1/1
+e 48 102 141 0/1
+e 48 104 142 0/1
+e 49 103 143 1/1
+e 49 105 144 0/1
+e 49 102 145 0/1
+e 50 101 146 1/1
+e 50 104 147 0/1
+e 50 105 148 0/1
+e 51 108 149 1/1
+e 51 102 150 0/1
+e 51 101 151 0/1
+e 52 103 152 1/1
+e 52 102 153 0/1
+e 52 104 154 0/1
+e 53 104 155 0/1
+e 53 102 156 1/1
+e 53 105 157 0/1
+e 54 103 158 1/1
+e 54 105 159 0/1
+e 54 108 160 0/1
+e 55 101 161 1/1
+e 55 102 162 0/1
+e 55 104 163 0/1
+e 56 108 164 0/1
+e 56 103 165 1/1
+e 56 105 166 0/1
+e 57 104 167 1/1
+e 57 102 168 0/1
+e 57 105 169 0/1
+e 58 101 170 1/1
+e 58 102 171 0/1
+e 58 104 172 0/1
+e 59 103 173 1/1
+e 59 104 174 0/1
+e 59 102 175 0/1
+e 60 105 176 1/1
+e 60 102 177 0/1
+e 60 103 178 0/1
+e 101 1001 179 13/20
+e 102 1001 180 10/10
+e 103 1001 181 15/20
+e 104 1001 182 10/10
+e 105 1001 183 10/10
+e 106 1001 184 0/2
+e 107 1001 185 0/1
+e 108 1001 186 2/2
+e 1000 1 187 1/1
+e 1000 2 188 1/1
+e 1000 3 189 1/1
+e 1000 4 190 1/1
+e 1000 5 191 1/1
+e 1000 6 192 1/1
+e 1000 7 193 1/1
+e 1000 8 194 1/1
+e 1000 9 195 1/1
+e 1000 10 196 1/1
+e 1000 11 197 1/1
+e 1000 12 198 1/1
+e 1000 13 199 1/1
+e 1000 14 200 1/1
+e 1000 15 201 1/1
+e 1000 16 202 1/1
+e 1000 17 203 1/1
+e 1000 18 204 1/1
+e 1000 19 205 1/1
+e 1000 20 206 1/1
+e 1000 21 207 1/1
+e 1000 22 208 1/1
+e 1000 23 209 1/1
+e 1000 24 210 1/1
+e 1000 25 211 1/1
+e 1000 26 212 1/1
+e 1000 27 213 1/1
+e 1000 28 214 1/1
+e 1000 29 215 1/1
+e 1000 30 216 1/1
+e 1000 31 217 1/1
+e 1000 32 218 1/1
+e 1000 33 219 1/1
+e 1000 34 220 1/1
+e 1000 35 221 1/1
+e 1000 36 222 1/1
+e 1000 37 223 1/1
+e 1000 38 224 1/1
+e 1000 39 225 1/1
+e 1000 40 226 1/1
+e 1000 41 227 1/1
+e 1000 42 228 1/1
+e 1000 43 229 1/1
+e 1000 44 230 1/1
+e 1000 45 231 1/1
+e 1000 46 232 1/1
+e 1000 47 233 1/1
+e 1000 48 234 1/1
+e 1000 49 235 1/1
+e 1000 50 236 1/1
+e 1000 51 237 1/1
+e 1000 52 238 1/1
+e 1000 53 239 1/1
+e 1000 54 240 1/1
+e 1000 55 241 1/1
+e 1000 56 242 1/1
+e 1000 57 243 1/1
+e 1000 58 244 1/1
+e 1000 59 245 1/1
+e 1000 60 246 1/1
+
+% End of graph

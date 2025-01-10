@@ -1,4 +1,3 @@
-% Graph handwritten
 % personne-id
 n Alice 1
 n Bernard 2
