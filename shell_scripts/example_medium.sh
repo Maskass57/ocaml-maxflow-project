@@ -22,6 +22,13 @@ progress_bar() {
     printf "\r[%-${width}s] %d%%" "$bar" "$progress"
 }
 
+graph_file=${1:-"sportvoeux6.txt"}
+
+if [ ! -f "../graphs/$graph_file" ]; then
+    echo "Error: File ../graphs/$graph_file does not exist."
+    exit 1
+fi
+
 echo "✅\e[1;32m Starting medium project example, make sure you change the file used in makefile \e[0m✅\n";
 sleep $WAITING_TIME_PRINT;
 cd ..;
@@ -49,9 +56,10 @@ sleep $WAITING_TIME_PRINT;
 echo "";
 echo "🤞\e[1;32m Executing, textual output sent in log.txt \e[0m🤞\n";
 sleep $WAITING_TIME_PRINT;
-make demo > log.txt;
-dot -Tsvg aps.dot > aps.svg;
-open aps.svg
+base_name=$(basename "$graph_file" .txt)
+make demo graph=../graphs/$graph_file > "$base_name.txt";
+dot -Tsvg aps.dot > "$base_name.svg";
+eog "$base_name.svg" &
 for i in $(seq 0 $WAITING_TIME_PROGRESS); do
     progress_bar $i
     sleep $WAITING_TIME_STAMP;
