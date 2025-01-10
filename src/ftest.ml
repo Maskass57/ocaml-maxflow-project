@@ -1,7 +1,7 @@
-(*open Gfile*)
+open Gfile
 (*open Tools*)
 open FulkersonCost
-(*open Apsgraph*)
+open Apsgraph
 open Apscost
 
 let () =
@@ -22,7 +22,7 @@ let () =
   (* Arguments are : infile(1) source-id(2) sink-id(3) outfile(4) *)
 
   let infile = Sys.argv.(1)
-  and _outfile = Sys.argv.(4)
+  and outfile = Sys.argv.(4)
 
   (* These command-line arguments are not used for the moment. *)
   and _source = int_of_string Sys.argv.(2)
@@ -51,21 +51,19 @@ let () =
   (* Rewrite the graph that has been read. *)
   let aps = from_file_aps_cost infile in
   let aps_complete = add_origin_destination_cost aps in 
-  let _aps_ffulk = fordFulkerson aps_complete 1000 1001 in ()
-  (*let aps_ffulk_joli = grapheJoli aps_ffulk in *)
+  let aps_ffulk = fordFulkerson aps_complete 1000 1001 in
+  let aps_ffulk_joli = grapheJoli aps_ffulk in
   
-  (*let aps_mapped = gmap aps_ffulk_joli (fun x -> int_of_string x) in*)
-
-  (*let () = write_file outfile aps_ffulk_joli in
+  let () = write_file outfile aps_ffulk_joli in
   
-  ();*)
+  ();
 
   (*let _testFordFulk = fordFulkerson graph_int 0 5 in
     export "./normal.dot" graph;
     export "./joli.dot" fulkerson_joli;
   *)
 
-  (*exportAPS "./aps.dot" aps_ffulk_joli;*)
+  exportAPS "./aps.dot" aps_ffulk_joli;
 
   (*export "./export.dot" _ford_graph_mapped;
 

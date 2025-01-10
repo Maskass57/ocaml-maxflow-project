@@ -1,6 +1,5 @@
 open Tools
 open Graph
-open Gfile
 
 type input_label = {capa:id;cost:id}
 type input_graph =  input_label graph
@@ -239,11 +238,8 @@ let rec updateEdgeGraph_cost gr path min_flow =
   match path with
   | nodex::nodey::rest -> 
     let arc = List.find (fun {src=src;tgt=tgt;lbl=_} -> src = nodex && tgt = nodey ) (out_arcs gr nodex) in
-    print_endline ("src: "^string_of_int arc.src^" tgt: "^string_of_int arc.tgt^" flow: " ^ string_of_int arc.lbl.flow);
     let gr1 = add_arc_cost gr nodex nodey {flow = (-min_flow);cost=arc.lbl.cost} in 
     let gr2 = add_arc_cost gr1 nodey nodex {flow = (min_flow);cost=(-arc.lbl.cost)} in
-    let arc_new = List.find (fun {src=src;tgt=tgt;lbl=_} -> src = nodex && tgt = nodey ) (out_arcs gr2 nodex) in
-    print_endline ("src: "^string_of_int arc_new.src^" tgt: "^string_of_int arc_new.tgt^" flow: " ^ string_of_int arc_new.lbl.flow);
 
     updateEdgeGraph_cost gr2 ((nodey::rest)) min_flow
   | _::[] -> gr
@@ -259,17 +255,16 @@ let rec updateEdgeGraph_cost gr path min_flow =
 let fordFulkerson gr origin destination =
   let fulkerson = convertGraph_Cost gr in 
   let eGraph = edgeGraph_cost fulkerson in
-
-  let mappedEGraph = gmap eGraph (fun x -> string_of_int x.flow ^ "-" ^ string_of_int x.cost) in
-  export ("./test.dot") mappedEGraph;
   let rec fordFulkersonAux gr1 i= 
     let path = dijkstra gr1 origin destination in 
     if(path=[destination])then gr1
     else 
     let min_flow = find_min_flow gr1 max_int path in
+    (*
     let temp = unEdgeGraph_cost fulkerson gr1 in
     let joli = grapheJoli temp in
     export ("./" ^ (string_of_int i) ^ ".dot") joli;
+    *)
     print_endline (string_of_int min_flow);
     print_dijkstra_path path;
     fordFulkersonAux (updateEdgeGraph_cost gr1 path min_flow) (i+1) 
