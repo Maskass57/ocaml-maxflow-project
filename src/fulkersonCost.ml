@@ -270,3 +270,7 @@ let fordFulkerson gr origin destination =
       fordFulkersonAux (updateEdgeGraph_cost gr1 path min_flow) (i+1) 
   in
   unEdgeGraph_cost fulkerson (fordFulkersonAux eGraph 0)
+
+
+let _getTotalCost gr=
+  e_fold gr (fun acu arc -> acu+arc.lbl.cost) 0

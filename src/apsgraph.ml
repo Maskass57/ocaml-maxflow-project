@@ -128,7 +128,13 @@ let exportAPS path gr =
   let ff = open_out path in
   (* Write in this file. *)
   fprintf ff "digraph finite_state_machine {\n" ;
+  fprintf ff "%ssize=\"8,48\";\n" indent;
   fprintf ff "%srankdir=LR;\n" indent;
+  fprintf ff "%sranksep=2.0;\n" indent;  (* Increase the vertical space between nodes *)
+  fprintf ff "%sranksep=7.0;\n" indent;  (* Increase the horizontal space between columns *)
+
+  fprintf ff "%snode [fontsize=32, width=1.2, height=1.2];\n" indent; (* Adjust node size and font size *)
+  fprintf ff "%sedge [fontsize=24];\n" indent;  (* Adjust edge label font size *)
 
   (* We get people list, then sports list *)
   let origin, col1, col2, destination = partition_nodes gr in
