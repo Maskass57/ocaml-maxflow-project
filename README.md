@@ -30,12 +30,30 @@ make demo
 dot -Tsvg aps.dot > aps.svg
 open aps.svg
 ```
-![Exemple](resources/aps.svg)
+![Exemple](resources/sportvoeux2.svg)
 
 
 ## Better project: Max flow, min cost
-Les étudiants peuvent hiérarchiser leurs voeux. Cela sera pris en compte dans l'attribution de leurs voeux, via un graphe
-avec un flow max et un coût minimal. La valeur accordée par un étudiant pour un voeu donne directement le coût de ce voeu.
+Les étudiants peuvent réaliser 3 voeux hiérarchisés.  
+Cela est pris en compte dans l'attribution de leurs voeux, via un graphe avec un flow max et un coût minimal.  
+La valeur accordée par un étudiant pour un voeu donne directement le coût de ce voeu: 1,2,3.  
+Notre implémentation retourne avec succès la répartition optimale des voeux, minimisant le coût total, et
+maximisant ainsi le bonheure des étudiants.  
+
+### Example
+Dans ce graphe, nous avons 60 étudiants et 75 places au total, tous sports confondus.
+La répartition génère un coût total de 71. 
+Autrement dit, les étudiants obtiennent en moyenne leurs voeux numéro 1,18, soit une excellente répartition. 
+
+Use `sportvoeux6.txt`
+```bash
+make clean
+make build
+make demo
+dot -Tsvg aps.dot > aps.svg
+open aps.svg
+```
+![Exemple](resources/sportvoeux6.svg)
 
 ## Help
 A [`Makefile`](Makefile) provides some useful commands:
