@@ -73,7 +73,7 @@ let add_origin_destination_cost graph =
             new_arc current_graph {src=id;tgt=1001;lbl={capa=1;cost=0}}
           else 
             current_graph 
-          in
+        in
         add_arc_aux updated_graph rest  
     in
     add_arc_aux final_graph nodes in
