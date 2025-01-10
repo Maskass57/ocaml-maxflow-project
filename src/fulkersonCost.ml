@@ -172,6 +172,7 @@ let dijkstra graph start target =
     | ((Some node),cost) -> 
       let label_founded = Hashtbl.find hashtbl node in
       Hashtbl.replace hashtbl node {cost=label_founded.cost; prev=label_founded.prev; marked=true};
+      (*Unix.sleep 1;*)
       update_neighbours graph hashtbl (node,cost);
       dijkstra_aux ()
   in 
@@ -263,8 +264,10 @@ let fordFulkerson gr origin destination =
   export ("./test.dot") mappedEGraph;
   let rec fordFulkersonAux gr1 i= 
     let path = dijkstra gr1 origin destination in 
+    if(path=[destination])then gr1
+    else 
     let min_flow = find_min_flow gr1 max_int path in
-    let temp = unEdgeGraph_cost fulkerson eGraph in
+    let temp = unEdgeGraph_cost fulkerson gr1 in
     let joli = grapheJoli temp in
     export ("./" ^ (string_of_int i) ^ ".dot") joli;
     print_endline (string_of_int min_flow);
