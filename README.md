@@ -4,7 +4,7 @@ OCAML project of :
 This project implements a sport attribution that could be used in attributing sports to INSA Toulouse's students.
 
 NOTE: TOUTES LES VERSIONS ATTENDUES SONT FONCTIONNELLES: minimal, medium et better project.  
-Il y a un tag medium_project pour la version medium: [TAG_MEDIUM_PROJECT](https://github.com/Maskass57/ocaml-maxflow-project/releases/tag/medium_project)
+Il y a un tag medium_project pour la version medium: [TAG_MEDIUM_PROJECT](https://github.com/Maskass57/ocaml-maxflow-project/releases/tag/medium_project)  
 La version actuelle est la version better project.
 
 ## Building and running
