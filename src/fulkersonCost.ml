@@ -233,7 +233,7 @@ let rec find_min_flow graph minimum dijkstra_path=
    @param min_flow : int, increment on the path
    @return : edgegraph_label graph.
 *) 
-let rec updateEdgeGraph_cost gr path min_flow = 
+let rec updateEdgeGraph_cost gr path min_flow cost = 
   (*let min_flow = find_min_flow gr max_int dijkstraResult in*)
   match path with
   | nodex::nodey::rest -> 
@@ -241,9 +241,9 @@ let rec updateEdgeGraph_cost gr path min_flow =
     let gr1 = add_arc_cost gr nodex nodey {flow = (-min_flow);cost=arc.lbl.cost} in 
     let gr2 = add_arc_cost gr1 nodey nodex {flow = (min_flow);cost=(-arc.lbl.cost)} in
 
-    updateEdgeGraph_cost gr2 ((nodey::rest)) min_flow
-  | _::[] -> gr
-  | [] -> gr
+    updateEdgeGraph_cost gr2 ((nodey::rest)) min_flow (cost + arc.lbl.cost)
+  | _::[] -> (gr,cost)
+  | [] -> (gr,cost)
 
 (**
    Fulkerson implementation adapted to a maxflow_mincost implementation. 
@@ -257,7 +257,7 @@ let fordFulkerson gr origin destination =
   let eGraph = edgeGraph_cost fulkerson in
   let rec fordFulkersonAux gr1 i= 
     let path = dijkstra gr1 origin destination in 
-    if(path=[destination])then gr1
+    if(path=[destination])then (gr1, i)
     else 
       let min_flow = find_min_flow gr1 max_int path in
     (*
@@ -267,17 +267,17 @@ let fordFulkerson gr origin destination =
     *)
       print_endline (string_of_int min_flow);
       print_dijkstra_path path;
-      fordFulkersonAux (updateEdgeGraph_cost gr1 path min_flow) (i+1) 
+      let (newGraph, cost)= (updateEdgeGraph_cost gr1 path min_flow i) in 
+      fordFulkersonAux newGraph cost
   in
-  unEdgeGraph_cost fulkerson (fordFulkersonAux eGraph 0)
+  let (newGraph, cost)= fordFulkersonAux eGraph 0 in
+  ((unEdgeGraph_cost fulkerson newGraph), cost) 
 
-
-let _getTotalCost gr=
-  e_fold gr (fun acu arc -> acu+arc.lbl.cost) 0
 
   let getCostGraph (gr:fulkerson_graphs_cost) = 
     e_fold gr (fun acu arc -> 
       if (arc.lbl.flow = 0) 
         then acu 
       else arc.lbl.cost + acu) 0
+
 

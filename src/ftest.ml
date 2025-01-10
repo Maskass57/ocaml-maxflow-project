@@ -51,7 +51,7 @@ let () =
   (* Rewrite the graph that has been read. *)
   let aps = from_file_aps_cost infile in
   let aps_complete = add_origin_destination_cost aps 1 in 
-  let aps_ffulk = fordFulkerson aps_complete 1000 1001 in
+  let (aps_ffulk,cost) = fordFulkerson aps_complete 1000 1001 in
   let aps_ffulk_joli = grapheJoli aps_ffulk in
   let () = write_file outfile aps_ffulk_joli in
 
