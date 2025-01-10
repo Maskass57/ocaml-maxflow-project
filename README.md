@@ -4,26 +4,35 @@ OCAML project of :
 This project implements a sport attribution that could be used in attributing sports to INSA Toulouse's students.
 
 NOTE: TOUTES LES VERSIONS ATTENDUES SONT FONCTIONNELLES: minimal, medium et better project.  
+Il y a un tag medium_project pour la version medium: [TAG_MEDIUM_PROJECT](https://github.com/Maskass57/ocaml-maxflow-project/releases/tag/medium_project)
+La version actuelle est la version better project.
 
-## Building
+## Building and running
 ```bash
 make clean
 make build
-```
-## Running
-```bash
 make demo
 dot -Tsvg aps.dot > aps.svg
 open aps.svg
 ```
+
 ## Medium project: Attribution des sports en APS
+[TAG_MEDIUM_PROJECT](https://github.com/Maskass57/ocaml-maxflow-project/releases/tag/medium_project)
+
 Bipartite matching.
 Chaque noeud étudiant se voit attribuer un arc entre la source et l'étudiant de capacité 1
 Chaque étudiant peut choisir autant de sports qu'il veut. Cela crée un arc entre l'étudiant et chaque sport.
 Chaque sport a une capacité limité. Notre algo donne de manière aléatoire une répartition des étudiants dans les sports
 en respectant obligatoirement leurs voeux.
 
+### Automatic testing
+```bash
+cd shell_scripts
+./example_medium.sh
+```
+
 ### Example
+
 Use `sportvoeux2.txt`
 ```bash
 make clean
@@ -41,6 +50,14 @@ Cela est pris en compte dans l'attribution de leurs voeux, via un graphe avec un
 La valeur accordée par un étudiant pour un voeu donne directement le coût de ce voeu: 1,2,3.  
 Notre implémentation retourne avec succès la répartition optimale des voeux, minimisant le coût total, et
 maximisant ainsi le bonheure des étudiants.  
+
+### Automatic testing
+
+```bash
+cd shell_scripts
+./advanced_demo.sh.sh
+```
+You can access the textual outputs of the graphs generated (including the global cost and each path found in the logs dir)
 
 ### Example
 Dans ce graphe, nous avons 60 étudiants et 75 places au total, tous sports confondus.
