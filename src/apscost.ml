@@ -5,7 +5,7 @@ open FulkersonCost
 
 (* Reads a line with an arc with a cost. *)
 let read_arc_cost graph line =
-  print_endline ("Input line: " ^ line);
+  (*print_endline ("Input line: " ^ line);*)
   try Scanf.sscanf line "a %d %d %d %d"
         (fun src tgt capa cost -> new_arc (ensure (ensure graph src) tgt) { src=src ; tgt=tgt ; lbl={capa=capa;cost=cost} } )
   with e ->

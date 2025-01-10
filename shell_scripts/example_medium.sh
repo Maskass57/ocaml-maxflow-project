@@ -54,10 +54,10 @@ done
 echo "";
 sleep $WAITING_TIME_PRINT;
 echo "";
-echo "🤞\e[1;32m Executing, textual output sent in log.txt \e[0m🤞\n";
-sleep $WAITING_TIME_PRINT;
 base_name=$(basename "$graph_file" .txt)
-make demo graph=../graphs/$graph_file > "$base_name.txt";
+echo "🤞\e[1;32m Executing, textual output sent in logs$graph_file.txt \e[0m🤞\n";
+sleep $WAITING_TIME_PRINT;
+make demo graph=../graphs/$graph_file > "logs/$base_name.txt";
 dot -Tsvg aps.dot > "$base_name.svg";
 eog "$base_name.svg" &
 for i in $(seq 0 $WAITING_TIME_PROGRESS); do

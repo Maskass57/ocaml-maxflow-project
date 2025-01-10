@@ -1,0 +1,32 @@
+
+   🚨  COMPILING  🚨 
+
+dune build src/ftest.exe
+ls src/*.exe > /dev/null && ln -fs src/*.exe .
+
+   ⚡  EXECUTING  ⚡
+
+./ftest.exe graphs/../graphs/sportvoeux5.txt 0 5 outfile
+Node destination already exists1
+Path found: [1000 -> 2 -> 105 -> 1001]
+1
+Path found: [1000 -> 5 -> 105 -> 1001]
+1
+Path found: [1000 -> 7 -> 101 -> 1001]
+1
+Path found: [1000 -> 10 -> 101 -> 1001]
+1
+Path found: [1000 -> 6 -> 102 -> 1001]
+1
+Path found: [1000 -> 9 -> 103 -> 1001]
+1
+Path found: [1000 -> 3 -> 103 -> 1001]
+1
+Path found: [1000 -> 11 -> 104 -> 1001]
+1
+Path found: [1000 -> 4 -> 108 -> 1001]
+Cout total : 9
+
+   🥁  RESULT (content of outfile)  🥁
+
+# @cat outfile

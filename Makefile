@@ -21,7 +21,7 @@ demo: build
 	@echo "\n   ⚡  EXECUTING  ⚡\n"
 	./ftest.exe graphs/${graph} $(src) $(dst) outfile
 	@echo "\n   🥁  RESULT (content of outfile)  🥁\n"
-	@cat outfile
+	# @cat outfile
 
 clean:
 	find -L . -name "*~" -delete

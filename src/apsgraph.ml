@@ -12,7 +12,7 @@ let read_comment graph line =
 (* Reads a line with a node *)
 let read_node_aps graph line =
   try 
-    print_endline ("Input line: " ^ line);
+    (*print_endline ("Input line: " ^ line);*)
     Scanf.sscanf line "n %s %d" (fun _ id -> new_node graph id)
   with e ->
     Printf.printf "Cannot read node in line - %s:\n%s\n%!" (Printexc.to_string e) line ;
@@ -20,7 +20,7 @@ let read_node_aps graph line =
 
 (* Reads a line with an arc *)
 let read_arc_aps graph line =
-  print_endline ("Input line: " ^ line);
+  (*print_endline ("Input line: " ^ line);*)
   try Scanf.sscanf line "a %d %d %d"
         (fun src tgt lbl-> new_arc (ensure (ensure graph src) tgt) { src=src ; tgt=tgt ; lbl=lbl } )
   with e ->
