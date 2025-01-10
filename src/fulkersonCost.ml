@@ -274,3 +274,10 @@ let fordFulkerson gr origin destination =
 
 let _getTotalCost gr=
   e_fold gr (fun acu arc -> acu+arc.lbl.cost) 0
+
+  let getCostGraph (gr:fulkerson_graphs_cost) = 
+    e_fold gr (fun acu arc -> 
+      if (arc.lbl.flow = 0) 
+        then acu 
+      else arc.lbl.cost + acu) 0
+

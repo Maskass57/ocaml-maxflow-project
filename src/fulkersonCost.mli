@@ -12,3 +12,4 @@ type 'a dijkstra_label = {cost: int; prev: 'a option; marked: bool}
 val convertGraph_Cost: input_label graph -> fulkerson_label_cost graph
 val fordFulkerson: input_label graph -> id -> id -> fulkerson_label_cost graph
 val grapheJoli: fulkerson_graphs_cost -> path graph
+val getCostGraph: fulkerson_graphs_cost -> id

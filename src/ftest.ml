@@ -53,7 +53,6 @@ let () =
   let aps_complete = add_origin_destination_cost aps 1 in 
   let aps_ffulk = fordFulkerson aps_complete 1000 1001 in
   let aps_ffulk_joli = grapheJoli aps_ffulk in
-
   let () = write_file outfile aps_ffulk_joli in
 
   ();
@@ -64,6 +63,8 @@ let () =
   *)
 
   exportAPS "./aps.dot" aps_ffulk_joli;
+  print_endline ("Cout total : " ^ string_of_int (getCostGraph aps_ffulk));
+
   (*export "./export.dot" _ford_graph_mapped;
 
     let dfs_result = dfs ford_graph 0 5 in
