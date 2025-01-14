@@ -67,18 +67,3 @@ let () =
   exportAPS "./aps.dot" aps_ffulk_joli;
   Printf.printf "%s%sCout total : %s%d\n" bold yellow reset (getCostGraph aps_ffulk) ;
   gui_display "test";
-  (*export "./export.dot" _ford_graph_mapped;
-
-    let dfs_result = dfs ford_graph 0 5 in
-    let _converted_result = get_list dfs_result in
-
-    let unOptionedResult = unOption dfs_result in
-    let dfs1st = updateEdgeGraph ford_graph unOptionedResult in
-    let _mapped_dfs1st = gmap dfs1st (fun x -> string_of_int x) in
-    let _testFordFulk_mapped = grapheJoli _testFordFulk in
-
-    export "./dfs1st.dot" _mapped_dfs1st;
-    export "./testFinal.dot" _testFordFulk_mapped;
-    (*Printf.printf "Path found: [%s] and min: %s\n"
-      (String.concat " -> " (List.map string_of_int converted_result)) (string_of_int (get_min dfs_result))*)
-  *)
