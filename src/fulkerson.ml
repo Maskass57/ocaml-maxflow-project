@@ -26,10 +26,6 @@ let grapheJoli gr = gmap gr (fun x -> string_of_int x.flow ^ "/" ^ string_of_int
 
   add_arc ngrb arc2.src arc2.tgt arc2.lbl.flow)) *)
 
-let unOption x = match x with
-  | Some x -> x
-  | None -> raise (Graph_error("No path found: get_arc")) (*ERREUR ICI*)
-
 let dfs gr origin destination =
   let rec dfsAux o d acu =
     let (lst,minimu)=acu in
@@ -71,17 +67,14 @@ let rec updateEdgeGraph gr dfsResult =
   | [] -> gr
 
 
-let getVal = function
-  | Some x -> x
-  | None -> raise (Graph_error("No path found"))
 let unEdgeGraph startGraph eGraph =
-  (*gmap startGraph (fun x -> let newVal = (getVal (find_arc eGraph x.tgt x.src)).lbl in {flow = newVal; capa = x.lbl.capa}  )*)
+  (*gmap startGraph (fun x -> let newVal = (unOption (find_arc eGraph x.tgt x.src)).lbl in {flow = newVal; capa = x.lbl.capa}  )*)
   e_fold startGraph (fun acu x  -> 
       let capaInverse = match find_arc startGraph x.tgt x.src with
         | Some arc -> arc.lbl.capa
         | None -> 0
       in 
-      let newVal = (getVal (find_arc eGraph x.tgt x.src)).lbl - capaInverse in 
+      let newVal = (unOption (find_arc eGraph x.tgt x.src)).lbl - capaInverse in 
       if (newVal >= 0) 
       then new_arc acu {src=x.src; tgt=x.tgt; lbl={flow=newVal; capa=x.lbl.capa}}
       else new_arc acu {src=x.src; tgt=x.tgt; lbl={flow=0; capa=x.lbl.capa}}) (clone_nodes startGraph)

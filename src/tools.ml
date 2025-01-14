@@ -1,6 +1,14 @@
 (* Yes, we have to repeat open Graph. *)
 open Graph
 
+let red = "\027[91m";;
+let green = "\027[92m";;
+let yellow = "\027[93m";;
+let reset = "\027[0m";;
+let bold = "\027[1m";;
+
+
+
 (* assert false is of type ∀α.α, so the type-checker is happy. *)
 let clone_nodes (gr:'a graph) = n_fold gr new_node empty_graph
 let gmap gr f = e_fold gr (fun grb arc -> new_arc grb {src=arc.src; tgt=arc.tgt;lbl=f arc.lbl}) (clone_nodes gr)
@@ -13,3 +21,7 @@ let  add_arc gr src tgt lbl =
   match (find_arc gr src tgt) with
   | None -> new_arc gr {src=src; tgt=tgt;lbl=lbl}
   | Some {src = a; tgt = b; lbl = nlbl} -> new_arc gr {src = a ; tgt = b ; lbl = lbl + nlbl}
+
+let unOption = function
+  | Some x -> x
+  | None -> raise (Graph_error("Error calling unOption"))

@@ -207,7 +207,7 @@ let print_dijkstra_path path =
   let formatted_path =
     String.concat " -> " (List.map (fun node -> string_of_int node) path)
   in
-  Printf.printf "Path found: [%s]\n" formatted_path
+  Printf.printf "Path found: %s[%s]%s" green formatted_path reset
 
 
 (**
@@ -265,8 +265,8 @@ let fordFulkerson gr origin destination =
     let joli = grapheJoli temp in
     export ("./" ^ (string_of_int i) ^ ".dot") joli;
     *)
-      print_endline (string_of_int min_flow);
       print_dijkstra_path path;
+      Printf.printf "  |  %sNew_path_cost: %d%s\n" red min_flow reset;
       let (newGraph, cost)= (updateEdgeGraph_cost gr1 path min_flow i) in 
       fordFulkersonAux newGraph cost
   in
