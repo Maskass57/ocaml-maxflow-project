@@ -2,12 +2,9 @@ open Tools
 open Graph
 
 type input_label = {capa:id;cost:id}
-type input_graph =  input_label graph
 
 type fulkerson_label_cost = {flow : id; capa : id; cost: id}
-type fulkerson_graphs_cost = fulkerson_label_cost graph
 type edgegraph_label = {flow:id;cost:id}
-type edgegraph_cost = edgegraph_label graph
 
 (*
   Dijkstra label, used in a hashtbl
@@ -44,10 +41,10 @@ let convertGraph_Cost gr = gmap gr (fun (lbl:input_label) -> {flow=0;capa=lbl.ca
 let  add_arc_cost gr src tgt label =
   match (find_arc gr src tgt) with
   | None -> new_arc gr {src=src; tgt=tgt;lbl=label}
-  | Some existing_label ->
+  | Some existing_arc ->
     let updated_label = {
-      flow = existing_label.lbl.flow + label.flow;
-      cost = existing_label.lbl.cost; 
+      flow = existing_arc.lbl.flow + label.flow;
+      cost = existing_arc.lbl.cost; 
     } in
     new_arc gr {src=src;tgt=tgt; lbl = updated_label}
 
@@ -56,18 +53,13 @@ let  add_arc_cost gr src tgt label =
    @param gr : input fulkerson_graphs_cost.
    @return : edgegraph_label graph.
 *)
-let edgeGraph_cost (gr: fulkerson_graphs_cost) = 
+let edgeGraph_cost gr = 
   e_fold gr (fun grb arc -> let (arc1, arc2)= createArcs_cost arc in 
               let ngrb = add_arc_cost grb arc1.src arc1.tgt {flow = arc1.lbl.flow; cost=arc1.lbl.cost} in 
               add_arc_cost ngrb arc2.src arc2.tgt {flow = arc2.lbl.flow; cost=arc2.lbl.cost} ) (clone_nodes gr)
 
 
-(**
-   Initializes the hashtbl with the starting edgegraph_label graph
-   @param gr : input edgegraph_label graph.
-   @param src : source node
-   @return : hashtbl(node, dijkstra_label).
-*)
+
 
 (**
    Counts nodes in a graph
@@ -77,10 +69,12 @@ let edgeGraph_cost (gr: fulkerson_graphs_cost) =
 let count_nodes (graph: 'a graph)=
   n_fold graph (fun _ acu -> acu+1) 0
 
+
 (**
-   Initializes dijkstra hashtbl
-   @param graph : input graph.
-   @return : Hashtbl.
+   Initializes the hashtbl with the starting edgegraph_label graph
+   @param gr : input edgegraph_label graph.
+   @param src : source node
+   @return : hashtbl(node, dijkstra_label).
 *)
 let initialize_dijkstra_hashtbl graph src = 
   let hashtbl = Hashtbl.create (count_nodes graph) in
@@ -125,15 +119,6 @@ let update_neighbours graph hashtbl (node,cost) =
        else 
          ()
     ) out_arcs 
-
-(**
-   Removes the option of a node option.
-   @param node : node option.
-   @return : node.
-*)    
-let unOption = function 
-  | Some x -> x
-  | None -> failwith "get_node failed"
 
 (**
    Reconstructs the path obtained through the hashtbl.
@@ -201,7 +186,7 @@ let unEdgeGraph_cost startGraph eGraph =
    @param gr : fulkerson_graphs_cost
    @return : path graph.
 *) 
-let grapheJoli (gr:fulkerson_graphs_cost) = gmap gr (fun x -> string_of_int x.flow ^ "/" ^ string_of_int x.capa)
+let grapheJoli (gr:fulkerson_label_cost graph) = gmap gr (fun x -> string_of_int x.flow ^ "/" ^ string_of_int x.capa)
 
 let print_dijkstra_path path =
   let formatted_path =
@@ -274,7 +259,7 @@ let fordFulkerson gr origin destination =
   ((unEdgeGraph_cost fulkerson newGraph), cost) 
 
 
-let getCostGraph (gr:fulkerson_graphs_cost) = 
+let getCostGraph (gr: fulkerson_label_cost graph) = 
   e_fold gr (fun acu arc -> 
       if (arc.lbl.flow = 0) 
       then acu 
