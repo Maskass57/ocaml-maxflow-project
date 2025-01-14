@@ -53,7 +53,7 @@ let () =
   let aps = from_file_aps_cost infile in
   let aps_complete = add_origin_destination_cost aps 1 in 
   let (aps_ffulk,cost) = fordFulkerson aps_complete 1000 1001 in
-  Printf.printf "%s%sCout total : %s%d\n" bold yellow reset cost ;
+  Printf.printf "%s%sCout total renvoyé par ford fulkerson: %s%d\n" bold yellow reset cost ;
   let aps_ffulk_joli = grapheJoli aps_ffulk in
   let () = write_file outfile aps_ffulk_joli in
 
@@ -65,8 +65,6 @@ let () =
   *)
 
   exportAPS "./aps.dot" aps_ffulk_joli;
-  Printf.printf "%s%sCout total : %s%d\n" bold yellow reset (getCostGraph aps_ffulk);
+  Printf.printf "%s%sCout total renvoyé par getCostGraph: %s%d\n" bold yellow reset (getCostGraph aps_ffulk);
 
-  ignore (Thread.create gui_display aps_ffulk);
-  Printf.printf "Le programme principal continue d'exécuter son code pendant que le GUI est en arrière-plan.\n";
-  GMain.main ();
+  gui_display aps_ffulk;
