@@ -4,7 +4,6 @@ open Graph
 let red = "\027[91m";;
 let green = "\027[92m";;
 let yellow = "\027[93m";;
-
 let reset = "\027[0m";;
 let bold = "\027[1m";;
 
