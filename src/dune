@@ -8,7 +8,7 @@
 
  ;; Link to executable in main dir
   (promote (until-clean))
-  (libraries unix)
+  (libraries unix lablgtk2)
 
 )
 

@@ -3,6 +3,7 @@ open Tools
 open FulkersonCost
 open Apsgraph
 open Apscost
+open Gui
 
 let () =
 
@@ -65,7 +66,7 @@ let () =
 
   exportAPS "./aps.dot" aps_ffulk_joli;
   Printf.printf "%s%sCout total : %s%d\n" bold yellow reset (getCostGraph aps_ffulk) ;
-
+  gui_display "test";
   (*export "./export.dot" _ford_graph_mapped;
 
     let dfs_result = dfs ford_graph 0 5 in

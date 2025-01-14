@@ -1,0 +1,1 @@
+val gui_display: string -> unit
