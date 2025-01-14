@@ -3,10 +3,16 @@
 src?=0
 dst?=5
 graph?=sportvoeux6.txt
+OPAM_DEPENDENCIES=lablgtk
 
 all: build
 
+install-deps:
+	@echo "\n   📦  CHECKING DEPENDENCIES  📦 \n"
+	opam install $(OPAM_DEPENDENCIES) --deps-only --yes
+
 build:
+	@make install-deps
 	@echo "\n   🚨  COMPILING  🚨 \n"
 	dune build src/ftest.exe
 	ls src/*.exe > /dev/null && ln -fs src/*.exe .
