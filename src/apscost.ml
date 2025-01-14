@@ -50,14 +50,14 @@ let add_origin_destination_cost graph nbreSportsChoisis =
     try
       new_node graph 1000 
     with Graph_error _->
-      Printf.printf "Node origin already exists";
+      Printf.printf "Node origin already exists\n";
       graph
   in
   let o_d_graph = 
     try
       new_node o_graph 1001
     with Graph_error _-> 
-      Printf.printf "Node destination already exists";
+      Printf.printf "Node destination already exists\n";
       o_graph
   in
 

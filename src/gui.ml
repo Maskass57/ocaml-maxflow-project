@@ -70,6 +70,6 @@ let gui_display gr =
       let text_view = GText.view ~packing:vbox#pack () in
       text_view#buffer#set_text text_to_display) ids;
     
-    
-
     window#show ();
+    GMain.main ();
+
