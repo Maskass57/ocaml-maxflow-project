@@ -128,7 +128,9 @@ Path found: [1000 -> 14 -> 103 -> 1001]
 1
 Path found: [1000 -> 4 -> 103 -> 1001]
 Cout total : 71
+Cout total : 71
 
    🥁  RESULT (content of outfile)  🥁
 
-# @cat outfile
+   😉  See logs directory  😉  
+

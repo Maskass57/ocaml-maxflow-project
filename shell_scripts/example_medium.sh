@@ -34,7 +34,7 @@ sleep $WAITING_TIME_PRINT;
 cd ..;
 sleep $WAITING_TIME_PRINT;
 echo "";
-echo "🚿\e[1;32m Cleaning \e[0mi🚿\n";
+echo "🚿\e[1;32m Cleaning \e[0m🚿\n";
 sleep $WAITING_TIME_PRINT;
 make clean;
 for i in $(seq 0 $WAITING_TIME_PROGRESS); do
@@ -59,7 +59,7 @@ echo "🤞\e[1;32m Executing, textual output sent in logs$graph_file.txt \e[0m�
 sleep $WAITING_TIME_PRINT;
 make demo graph=../graphs/$graph_file > "logs/$base_name.txt";
 dot -Tsvg aps.dot > "$base_name.svg";
-eog "$base_name.svg" &
+xdg-open "$base_name.svg" &
 for i in $(seq 0 $WAITING_TIME_PROGRESS); do
     progress_bar $i
     sleep $WAITING_TIME_STAMP;
