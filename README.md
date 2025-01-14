@@ -7,7 +7,7 @@ NOTE: TOUTES LES VERSIONS ATTENDUES SONT FONCTIONNELLES: minimal, medium et bett
 Il y a un tag medium_project pour la version medium: [TAG_MEDIUM_PROJECT](https://github.com/Maskass57/ocaml-maxflow-project/releases/tag/medium_project)  
 La version actuelle est la version better project.
 
-## Building and running
+## Building and running (not recommended, use our scripts)
 ```bash
 make clean
 make build
