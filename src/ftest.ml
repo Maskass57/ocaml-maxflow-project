@@ -30,25 +30,6 @@ let () =
   and _sink = int_of_string Sys.argv.(3)
   in
 
-  (* Open file *)
-  (*
-  let graph = from_file infile in
-  let graph_int = gmap graph (fun x -> int_of_string x) in
-  let fulkerson = convertGraph graph_int in 
-  let _fulkerson_joli = grapheJoli fulkerson in 
-
-  let _fulkerson_Int = gmap fulkerson (fun x -> x.flow) in
-  let _new_graph = clone_nodes graph in
-  let _mapped_graph = gmap graph (fun _x -> "a") in 
-  let mapped_graph_path = gmap graph (fun x -> int_of_string x) in
-  let added_arc = add_arc mapped_graph_path 3 3 3 in
-  let _mapped_graph_int = gmap added_arc (fun x -> string_of_int x) in
-
-  let ford_graph = edgeGraph fulkerson in
-
-  let _ford_graph_mapped = gmap ford_graph (fun x -> string_of_int x) in 
-  *)
-
   (* Rewrite the graph that has been read. *)
   let aps = from_file_aps_cost infile in
   let aps_complete = add_origin_destination_cost aps 1 in 
@@ -56,13 +37,6 @@ let () =
   Printf.printf "%s%sCout total renvoyé par ford fulkerson: %s%d\n" bold yellow reset cost ;
   let aps_ffulk_joli = grapheJoli aps_ffulk in
   let () = write_file outfile aps_ffulk_joli in
-
-  ();
-
-  (*let _testFordFulk = fordFulkerson graph_int 0 5 in
-    export "./normal.dot" graph;
-    export "./joli.dot" fulkerson_joli;
-  *)
 
   exportAPS "./aps.dot" aps_ffulk_joli;
   Printf.printf "%s%sCout total renvoyé par getCostGraph: %s%d\n" bold yellow reset (getCostGraph aps_ffulk);
