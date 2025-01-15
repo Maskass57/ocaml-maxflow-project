@@ -57,7 +57,7 @@ let edgeGraph_cost gr =
   e_fold gr (fun grb arc -> let (arc1, arc2)= createArcs_cost arc in 
               let ngrb = add_arc_cost grb arc1.src arc1.tgt {flow = arc1.lbl.flow; cost=arc1.lbl.cost} in 
               add_arc_cost ngrb arc2.src arc2.tgt {flow = arc2.lbl.flow; cost=arc2.lbl.cost} ) (clone_nodes gr)
-              
+
 (**
    Counts nodes in a graph
    @param gr : input graph.

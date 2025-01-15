@@ -87,19 +87,19 @@ let gui_display gr =
       text_view#buffer#set_text text_to_display) ids;
 
   let listeSports = List.fold_left (fun acu (_,idSport) -> 
-    let name_sport = Hashtbl.find hashtbl idSport in 
-    if (List.mem (name_sport,idSport) acu) then
-      acu
-    else 
-      (name_sport,idSport)::acu
-  ) [] ids in
+      let name_sport = Hashtbl.find hashtbl idSport in 
+      if (List.mem (name_sport,idSport) acu) then
+        acu
+      else 
+        (name_sport,idSport)::acu
+    ) [] ids in
   let vbox_right = GPack.vbox ~packing:hbox#pack ~width:200 ~spacing:30 () in
   let _label1 = GMisc.label ~text:("Cout total : " ^ string_of_int (getCostGraph gr)) ~packing:vbox_right#pack () in
   let _label2 = GMisc.label ~text:("Nombre d'etudiants : " ^ string_of_int ((Hashtbl.length hashtbl - List.length listeSports))) ~packing:vbox_right#pack () in
   let _label4 = GMisc.label ~text:("Etudiants avec un sport: " ^ string_of_int((List.length ids))) ~packing:vbox_right#pack () in
-  let _label5 = GMisc.label ~text:("Esperance : " ^ string_of_float (((float_of_int (getCostGraph gr))) /. (float_of_int (List.length ids)))) ~packing:vbox_right#pack () in
+  let _label5 = GMisc.label ~text:("Moyenne : " ^ string_of_float (((float_of_int (getCostGraph gr))) /. (float_of_int (List.length ids)))) ~packing:vbox_right#pack () in
   let _label3 = GMisc.label ~text:("Résultat des sports: \n"
-    ^ List.fold_left (fun acu (nomSport,idSport) -> acu ^ "\n" ^ nomSport ^ " " ^ print_flow_capa (obtain_sport_flow_capa gr idSport)) "" listeSports) ~packing:vbox_right#pack () in
+                                   ^ List.fold_left (fun acu (nomSport,idSport) -> acu ^ "\n" ^ nomSport ^ " " ^ print_flow_capa (obtain_sport_flow_capa gr idSport)) "" listeSports) ~packing:vbox_right#pack () in
   window#connect#destroy ~callback:GMain.quit |> ignore;
   window#show ();
   GMain.main ();
