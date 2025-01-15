@@ -3,11 +3,15 @@ OCAML project of :
 - Loubejac Jean-Philippe.  
 This project implements a sport attribution that could be used in attributing sports to INSA Toulouse's students.
 
-NOTE: TOUTES LES VERSIONS ATTENDUES SONT FONCTIONNELLES: minimal, medium et better project.  
-Il y a un tag medium_project pour la version medium: [TAG_MEDIUM_PROJECT](https://github.com/Maskass57/ocaml-maxflow-project/releases/tag/medium_project)  
-La version actuelle est la version better project.
+NOTE: ALL EXPECTED VERSIONS ARE FULLY FUNCTIONAL: minimal, medium and better project.  
+You can find several tags for different versions of the code: 
+- [TAG_MEDIUM_PROJECT](https://github.com/Maskass57/ocaml-maxflow-project/releases/tag/medium_project)
+- [TAG_ADVANCED_PROJECT](https://github.com/Maskass57/ocaml-maxflow-project/releases/tag/advanced_version)  
+- [TAG_NO_GUI](https://github.com/Maskass57/ocaml-maxflow-project/releases/tag/NoGUI)
+The actual version contains a GUI used to display the results obtained from running.
 
-## Building and running (not recommended, use our scripts)
+## Building and running (not recommended, see below to use our scripts)
+Note that we automatized the installation of lablgtk (used to display results) via make build.
 ```bash
 make clean
 make build
@@ -20,17 +24,16 @@ open aps.svg
 [TAG_MEDIUM_PROJECT](https://github.com/Maskass57/ocaml-maxflow-project/releases/tag/medium_project)
 
 Bipartite matching.
-Chaque noeud étudiant se voit attribuer un arc entre la source et l'étudiant de capacité 1
-Chaque étudiant peut choisir autant de sports qu'il veut. Cela crée un arc entre l'étudiant et chaque sport.
-Chaque sport a une capacité limité. Notre algo donne de manière aléatoire une répartition des étudiants dans les sports
-en respectant obligatoirement leurs voeux.
+Chaque noeud étudiant se voit attribuer un arc entre la source et l'étudiant de capacité 1.  
+Chaque étudiant peut choisir autant de sports qu'il veut. Cela crée un arc entre l'étudiant et chaque sport.  
+Chaque sport a une capacité limité. Notre algo donne de manière aléatoire une répartition des étudiants dans les sports  
+en respectant obligatoirement leurs voeux et en maximisant bien sur le flot.  
 
 ### Automatic testing
 ```bash
 cd shell_scripts
 ./example_medium.sh
 ```
-
 ### Example
 
 Use `sportvoeux2.txt`
@@ -45,11 +48,17 @@ open aps.svg
 
 
 ## Better project: Max flow, min cost
-Les étudiants peuvent réaliser 3 voeux hiérarchisés.  
-Cela est pris en compte dans l'attribution de leurs voeux, via un graphe avec un flow max et un coût minimal.  
+[TAG_ADVANCED_PROJECT](https://github.com/Maskass57/ocaml-maxflow-project/releases/tag/advanced_version)  
+Les étudiants peuvent réaliser 3 voeux hiérarchisés. Chaque voeu est noté avec un indice 1,2 ou 3.  
+Le voeu 1 est le voeu préféré de l'étudiant et le voeu 3 le moins attendu.   
+Cela est pris en compte dans l'attribution de leurs voeux, via un graphe avec un flot max et un coût minimal.  
 La valeur accordée par un étudiant pour un voeu donne directement le coût de ce voeu: 1,2,3.  
-Notre implémentation retourne avec succès la répartition optimale des voeux, minimisant le coût total, et
-maximisant ainsi le bonheure des étudiants.  
+Notre implémentation retourne avec succès la répartition optimale des voeux, minimisant le coût total, et  
+maximisant ainsi le bonheur des étudiants en permettant une attribution des voeux qui donne le plus de sports 
+tout en maximisant les hiérarchies des sports données par les étudiants.  
+Nous sommes allés plus loin et avons cherché à analyser et vérifié les sorties procurées par notre implémentation.
+Pour cela, nous avons des sorties textuelles, des graphes, et graphiques.
+Nous vous invitons à les consulter ci-dessous: 
 
 ### Automatic testing
 
@@ -73,6 +82,20 @@ dot -Tsvg aps.dot > aps.svg
 open aps.svg
 ```
 ![Exemple](resources/sportvoeux6.svg)
+
+## To go further
+As we want resolve a problem, we want to be able to see the results.
+
+### Textual output
+We have the logs files that provide the exact results available at ./logs.
+![Exemple](resources/logs.png)
+
+### Graphical output
+We have an instance of a gui generated whenever we run that:
+- associates each person to the sport obtained
+- shows the total cost of the result
+- shows the number of students assigned to each sport and the maximal number that could have been assigned
+![Exemple](resources/gui.png)
 
 ## Help
 A [`Makefile`](Makefile) provides some useful commands:
