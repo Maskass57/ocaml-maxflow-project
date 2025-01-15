@@ -1,4 +1,4 @@
-OCAML project of :  
+# OCAML project  
 - LACAU Clément  
 - Loubejac Jean-Philippe.  
 This project implements a sport attribution that could be used in attributing  
