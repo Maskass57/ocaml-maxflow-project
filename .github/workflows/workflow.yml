@@ -33,10 +33,10 @@ jobs:
           path: "~/.opam"
           key: ${{ matrix.os }}-${{ matrix.ocaml-version }}  
 
-      - name: Use OCaml ${{ matrix.ocaml-version }}
-        uses: avsm/setup-ocaml@v1
-        with:
-          ocaml-version: ${{ matrix.ocaml-version }}
+      #- name: Use OCaml ${{ matrix.ocaml-version }}
+      #  uses: avsm/setup-ocaml@v1
+      #  with:
+      #    ocaml-version: ${{ matrix.ocaml-version }}
 
       - run: opam install dune
       - name: Build project
