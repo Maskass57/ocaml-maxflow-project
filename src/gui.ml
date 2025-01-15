@@ -97,7 +97,7 @@ let gui_display gr =
     ) [] ids in
   let _label2 = GMisc.label ~text:("Résultat des sports: \n"
                                    ^ List.fold_left (fun acu (nomSport,idSport) -> acu ^ "\n" ^ nomSport ^ " " ^ print_flow_capa (obtain_sport_flow_capa gr idSport)) "" listeSports) ~packing:vbox_right#pack () in
-
+  window#connect#destroy ~callback:GMain.quit |> ignore;
   window#show ();
   GMain.main ();
 
