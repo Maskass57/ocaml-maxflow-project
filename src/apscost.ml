@@ -1,9 +1,14 @@
 open Graph
 open Apsgraph
 open FulkersonCost
+open Gfile
 
-
-(* Reads a line with an arc with a cost. *)
+(**
+  Reads a line containing an arc with a cost.
+  @param graph : input_label graph
+  @param line : string
+  @return : input_label graph, the graph with the created arc
+*)
 let read_arc_cost graph line =
   try Scanf.sscanf line "a %d %d %d %d"
         (fun src tgt capa cost -> new_arc (ensure (ensure graph src) tgt) { src=src ; tgt=tgt ; lbl={capa=capa;cost=cost} } )
@@ -11,6 +16,11 @@ let read_arc_cost graph line =
     Printf.printf "Cannot read arc in line - %s:\n%s\n%!" (Printexc.to_string e) line ;
     failwith "from_file b"
 
+(**
+  Reads the file found at path and returns the input_label graph.
+  @param path : string, path to access the file
+  @return : input_label graph, the graph generated
+*)
 let from_file_aps_cost path =
   let infile = open_in path in
 
@@ -44,6 +54,13 @@ let from_file_aps_cost path =
   close_in infile ;
   final_graph
 ;;
+
+(**
+  Adds origin and destination nodes to the input_label graph as this is not something present in the .txt files.
+  @param graph : input_label graph, the graph given in input
+  @param nbreSportsChoisis : int, maximal number of sports a student can be assigned to. 1 for us.
+  @return : input_label graph, the graph with origin and destination nodes.
+*)
 let add_origin_destination_cost graph nbreSportsChoisis =
   let o_graph = 
     try

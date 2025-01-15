@@ -257,7 +257,9 @@ let fordFulkerson gr origin destination =
   ((unEdgeGraph_cost fulkerson newGraph), cost) 
 
 (**
-
+  Returns the total cost from a fulkerson_label_cost graph. 
+  @param gr : fulkerson_label_cost graph.
+  @return : int, the cost
 *)
 let getCostGraph (gr: fulkerson_label_cost graph) = 
   e_fold gr (fun acu arc -> 

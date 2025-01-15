@@ -5,6 +5,8 @@ open Graph
 
 type path = string
 
+val ensure: 'a graph -> id -> 'a graph
+val read_comment: 'a -> path -> 'a
 (* Values are read as strings. *)
 val from_file: path -> string graph
 
