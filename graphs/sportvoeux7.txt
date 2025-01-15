@@ -10,13 +10,10 @@ n Eva 5
 n François 6
 
 % sport-id
-n Badminton 101 
 n Basket 102 
 n Foot 103 
 n Rugby 104 
 n Danse 105
-n APPN 106
-n CTP 107 
 n Pétanque 108
 
 %personne-sport-capa-coût
@@ -25,7 +22,7 @@ a 1 102 1 2  % Choix 2 pour Alice : Basket avec coût 2
 a 1 103 1 3  % Choix 3 pour Alice : Foot avec coût 3
 
 a 2 105 1 1  % Choix 1 pour Bernard : Danse avec coût 1
-a 2 101 1 2  % Choix 2 pour Bernard : Badminton avec coût 2
+a 2 108 1 2  % Choix 2 pour Bernard : Pétanque avec coût 2
 a 2 102 1 3  % Choix 3 pour Bernard : Basket avec coût 3
 
 a 3 103 1 1  % Choix 1 pour Claire : Foot avec coût 1

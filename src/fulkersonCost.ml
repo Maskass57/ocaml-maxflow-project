@@ -57,10 +57,7 @@ let edgeGraph_cost gr =
   e_fold gr (fun grb arc -> let (arc1, arc2)= createArcs_cost arc in 
               let ngrb = add_arc_cost grb arc1.src arc1.tgt {flow = arc1.lbl.flow; cost=arc1.lbl.cost} in 
               add_arc_cost ngrb arc2.src arc2.tgt {flow = arc2.lbl.flow; cost=arc2.lbl.cost} ) (clone_nodes gr)
-
-
-
-
+              
 (**
    Counts nodes in a graph
    @param gr : input graph.
@@ -196,7 +193,7 @@ let print_dijkstra_path path =
 
 
 (**
-   Find the minimal flow from the path found bu recuperating the data associated in the graph. 
+   Find the minimal flow from the path found by recuperating the data associated in the graph. 
    @param graph : input graph
    @param minimum : int, accumulator
    @param dijkstra_path : node list
@@ -216,7 +213,8 @@ let rec find_min_flow graph minimum dijkstra_path=
    @param gr : edgegraph_label graph
    @param path : id list, dijkstra resul
    @param min_flow : int, increment on the path
-   @return : edgegraph_label graph.
+   @param cost : acu of the total cost
+   @return : edgegraph_label graph * cost.
 *) 
 let rec updateEdgeGraph_cost gr path min_flow cost = 
   (*let min_flow = find_min_flow gr max_int dijkstraResult in*)
@@ -240,9 +238,9 @@ let rec updateEdgeGraph_cost gr path min_flow cost =
 let fordFulkerson gr origin destination =
   let fulkerson = convertGraph_Cost gr in 
   let eGraph = edgeGraph_cost fulkerson in
-  let rec fordFulkersonAux gr1 i= 
+  let rec fordFulkersonAux gr1 cost= 
     let path = dijkstra gr1 origin destination in 
-    if(path=[destination])then (gr1, i)
+    if(path=[destination])then (gr1, cost)
     else 
       let min_flow = find_min_flow gr1 max_int path in
     (*
@@ -251,14 +249,16 @@ let fordFulkerson gr origin destination =
     export ("./" ^ (string_of_int i) ^ ".dot") joli;
     *)
       print_dijkstra_path path;
-      Printf.printf "  |  %sNew_path_cost: %d%s\n" red min_flow reset;
-      let (newGraph, cost)= (updateEdgeGraph_cost gr1 path min_flow i) in 
-      fordFulkersonAux newGraph cost
+      Printf.printf "  |  %sNew_path_flow: %d%s\n" red min_flow reset;
+      let (newGraph, newCost)= (updateEdgeGraph_cost gr1 path min_flow cost) in 
+      fordFulkersonAux newGraph newCost
   in
   let (newGraph, cost)= fordFulkersonAux eGraph 0 in
   ((unEdgeGraph_cost fulkerson newGraph), cost) 
 
+(**
 
+*)
 let getCostGraph (gr: fulkerson_label_cost graph) = 
   e_fold gr (fun acu arc -> 
       if (arc.lbl.flow = 0) 
