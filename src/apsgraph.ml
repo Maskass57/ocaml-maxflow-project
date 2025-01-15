@@ -3,22 +3,22 @@ open Printf
 open Gfile
 
 (**
-  Reads a line containing a node.
-  @param graph : input_label graph
-  @param line : string
-  @return : input_label graph, the graph with the created node
+   Reads a line containing a node.
+   @param graph : input_label graph
+   @param line : string
+   @return : input_label graph, the graph with the created node
 *)let read_node_aps graph line =
-  try 
-    Scanf.sscanf line "n %s %d" (fun _ id -> new_node graph id)
-  with e ->
-    Printf.printf "Cannot read node in line - %s:\n%s\n%!" (Printexc.to_string e) line ;
-    failwith "read_node_aps"
+    try 
+      Scanf.sscanf line "n %s %d" (fun _ id -> new_node graph id)
+    with e ->
+      Printf.printf "Cannot read node in line - %s:\n%s\n%!" (Printexc.to_string e) line ;
+      failwith "read_node_aps"
 
 (**
-  Reads a line containing an arc.
-  @param graph : input_label graph
-  @param line : string
-  @return : input_label graph, the graph with the created arc
+   Reads a line containing an arc.
+   @param graph : input_label graph
+   @param line : string
+   @return : input_label graph, the graph with the created arc
 *)
 let read_arc_aps graph line =
   try Scanf.sscanf line "a %d %d %d"
@@ -29,11 +29,11 @@ let read_arc_aps graph line =
 
 
 (**
-  Takes a graph and returns 4 variables containing: origin-people-sports-destination.
-  The nodes are partitioned depending of the values decided:
-  source = 1000, destination = 1001, people between 1 and 99, sports between 100 and 1000
-  @param graph : 'a graph, input graph
-  @return : id * id list * id list * id, containing: source, people list, sports list, destination 
+   Takes a graph and returns 4 variables containing: origin-people-sports-destination.
+   The nodes are partitioned depending of the values decided:
+   source = 1000, destination = 1001, people between 1 and 99, sports between 100 and 1000
+   @param graph : 'a graph, input graph
+   @return : id * id list * id list * id, containing: source, people list, sports list, destination 
 *) 
 let partition_nodes graph =
   let rec partition (origin, col1, col2, destination) nodes =
@@ -53,9 +53,9 @@ let partition_nodes graph =
   partition (1000, [], [], 1001) nodes
 
 (**
-  Reads the file found at path and returns the id graph.
-  @param path : string, path to access the file
-  @return : id graph, the graph generated
+   Reads the file found at path and returns the id graph.
+   @param path : string, path to access the file
+   @return : id graph, the graph generated
 *)
 let from_file_aps path =
 
@@ -93,9 +93,9 @@ let from_file_aps path =
 ;;
 
 (**
-  Adds origin and destination nodes to the id graph as this is not something present in the .txt files.
-  @param graph : id graph, the graph given in input
-  @return : id graph, the graph with origin and destination nodes.
+   Adds origin and destination nodes to the id graph as this is not something present in the .txt files.
+   @param graph : id graph, the graph given in input
+   @return : id graph, the graph with origin and destination nodes.
 *)
 let add_origin_destination graph =
   let o_graph = 
@@ -135,11 +135,11 @@ let add_origin_destination graph =
 
 
 (**
-  Writes a string graph in dot format, but under a bipartite view (the format understood by graphviz).
-  We used the nodes partitioning to separated the differend nodes categories in subgraphs.
-  @param path : path, the path where we will write the file
-  @param gr : path graph, the graph that we read values from
-  @return : unit, nothing to return.
+   Writes a string graph in dot format, but under a bipartite view (the format understood by graphviz).
+   We used the nodes partitioning to separated the differend nodes categories in subgraphs.
+   @param path : path, the path where we will write the file
+   @param gr : path graph, the graph that we read values from
+   @return : unit, nothing to return.
 *)
 let exportAPS path gr =
   let indent = "  " in
