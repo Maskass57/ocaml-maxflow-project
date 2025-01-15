@@ -123,7 +123,7 @@ And finally, we have the graph generated using GraphViz:
 
 ## Help
 A [`Makefile`](Makefile) provides some useful commands:
-
+ - `install-deps` to install the required dependencies 
  - `make build` to compile. This creates an `ftest.exe` executable
  - `make demo` to run the `ftest` program with some arguments
  - `make format` to indent the entire project
