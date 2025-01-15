@@ -43,6 +43,15 @@ jobs:
           sudo add-apt-repository universe
           sudo apt-get update
           sudo apt-get install -y bubblewrap darcs g++-multilib gcc-multilib mercurial musl-tools
+
+      wget https://darcs.haskell.org/darcs-2.14.3.tar.gz
+          tar -xvzf darcs-2.14.3.tar.gz
+          cd darcs-2.14.3
+          ./configure
+          make
+          sudo make install
+          cd ..
+          rm -rf darcs-2.14.3 darcs-2.14.3.tar.gz
           
       - run: opam install dune
       - name: Build project
