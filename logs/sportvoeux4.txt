@@ -1,3 +1,9 @@
+make[1]: Entering directory '/home/clem/Documents/GitHub/ocaml-maxflow-project'
+
+   📦  CHECKING DEPENDENCIES  📦 
+
+opam install lablgtk 
+make[1]: Leaving directory '/home/clem/Documents/GitHub/ocaml-maxflow-project'
 
    🚨  COMPILING  🚨 
 
