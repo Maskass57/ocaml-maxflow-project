@@ -113,7 +113,7 @@ We have the logs files that provide the exact results available at ./logs.
 We have an instance of a gui generated whenever we run that:
 - associates each person to the sport obtained
 - shows the total cost of the result
-- shows the number of students assigned to each sport and the maximal number that could have been assigned
+- shows the number of students assigned to each sport and the maximal number that could have been assigned  
 ![Exemple](resources/gui.png)
 
 ### Graph output
