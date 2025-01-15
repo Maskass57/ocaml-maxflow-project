@@ -4,18 +4,45 @@ open Gfile
 
 type fulkerson_label = {flow : id; capa : id}
 
+(**
+    Create 2 arcs from the input arc.
+    @param arc: fulkerson_label arc.
+    @return : (fulkerson_label arc * fulkerson_label arc).
+*)
 let createArcs = function  | {src = s ; tgt = d ; lbl = {flow = f ; capa = c}} -> 
   ({ src = s ; tgt = d ; lbl = {flow = c-f;capa = c}} , { src = d ; tgt = s ; lbl = {flow = f ; capa = c}})
 
+(**
+    Convert an int graph into a fulkerson_label graph.
+    @param gr : int graph.
+    @return : fulkerson_label graph.
+*)
 let convertGraph gr = gmap gr (fun lbl -> {flow=0;capa=lbl})
 
+(**
+    Convert a fulkerson_label graph into a edge graph (int graph).
+    @param gr : fulkerson_label graph.
+    @return : int graph.
+*)
 let edgeGraph gr = 
   e_fold gr (fun grb arc -> let (arc1, arc2)= createArcs arc in 
               let ngrb = add_arc grb arc1.src arc1.tgt arc1.lbl.flow in 
               add_arc ngrb arc2.src arc2.tgt arc2.lbl.flow ) (clone_nodes gr)
 
+(**
+    Maps a fulkerson_label graph into a path graph (String graph).
+    @param gr : fulkerson_label graph.
+    @return : path graph.
+*)
 let grapheJoli gr = gmap gr (fun x -> string_of_int x.flow ^ "/" ^ string_of_int x.capa)
 
+(**
+    Performs dfs path finding on a graph with a given origin and destination node.
+    @param gr : edge graph (int graph).
+    @param origin : id (int).
+    @param destination : id (int).
+    @return : (id list (the path) * int (max flow over the path)).
+*)
 let dfs gr origin destination =
   let rec dfsAux o d acu =
     let (lst,minimu)=acu in
@@ -36,6 +63,12 @@ let dfs gr origin destination =
   in 
   dfsAux origin destination ([], max_int)
 
+(**
+    Update the edge graph (int graph) thanks to the path found. 
+    @param gr : edge graph (int graph).
+    @param dsfResult : (int list * int ).
+    @return : edge graph (int graph).
+*)
 let rec updateEdgeGraph gr dfsResult = 
   let (lst,inc) = dfsResult in 
   match lst with
@@ -44,6 +77,12 @@ let rec updateEdgeGraph gr dfsResult =
   | [] -> gr
 
 
+(**
+    Convert a edge graph (int graph) into a fulkerson_label graph.
+    @param startGraph: fulkerson_label graph.
+    @param eGraph: edge graph (int graph).
+    @return : fulkerson_label graph.
+*)
 let unEdgeGraph startGraph eGraph =
   e_fold startGraph (fun acu x  -> 
       let capaInverse = match find_arc startGraph x.tgt x.src with
@@ -55,6 +94,13 @@ let unEdgeGraph startGraph eGraph =
       then new_arc acu {src=x.src; tgt=x.tgt; lbl={flow=newVal; capa=x.lbl.capa}}
       else new_arc acu {src=x.src; tgt=x.tgt; lbl={flow=0; capa=x.lbl.capa}}) (clone_nodes startGraph)
 
+(**
+    Fulkerson implementation.
+    @param gr : input graph (int graph).
+    @param origin : id (int).
+    @param destination : id (int).
+    @return : fulkerson_label graph.
+*)
 let fordFulkerson gr origin destination =
   let fulkerson = convertGraph gr in 
   let eGraph = edgeGraph fulkerson in

@@ -9,7 +9,7 @@ all: build
 
 install-deps:
 	@echo "\n   📦  CHECKING DEPENDENCIES  📦 \n"
-	opam install $(OPAM_DEPENDENCIES) --deps-only --yes
+	opam install $(OPAM_DEPENDENCIES) 
 
 build:
 	@make install-deps

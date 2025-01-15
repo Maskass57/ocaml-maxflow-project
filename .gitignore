@@ -7,6 +7,7 @@ outfile
 *.svg
 *.ocp-indent-tmp
 log.txt
+logs/
 
 !resources/
 !resources/*.svg
