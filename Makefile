@@ -12,7 +12,6 @@ install-deps:
 	opam install $(OPAM_DEPENDENCIES) 
 
 build:
-	@make install-deps
 	@echo "\n   🚨  COMPILING  🚨 \n"
 	dune build src/ftest.exe
 	ls src/*.exe > /dev/null && ln -fs src/*.exe .
