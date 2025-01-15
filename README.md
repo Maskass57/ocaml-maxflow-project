@@ -1,17 +1,24 @@
 OCAML project of :  
 - LACAU Clément  
 - Loubejac Jean-Philippe.  
-This project implements a sport attribution that could be used in attributing sports to INSA Toulouse's students.
+This project implements a sport attribution that could be used in attributing  
+sports to INSA Toulouse's students.
 
 NOTE: ALL EXPECTED VERSIONS ARE FULLY FUNCTIONAL: minimal, medium and better project.  
-You can find several tags for different versions of the code: 
-- [TAG_MEDIUM_PROJECT](https://github.com/Maskass57/ocaml-maxflow-project/releases/tag/medium_project)
+We went further than the better project version, especially in the presentation  
+of results into data that are human readable, with textual, graphs and graphical outputs.  
+
+You can find several tags for different versions of the code:  
+- [TAG_MEDIUM_PROJECT](https://github.com/Maskass57/ocaml-maxflow-project/releases/tag/medium_project)  
 - [TAG_ADVANCED_PROJECT](https://github.com/Maskass57/ocaml-maxflow-project/releases/tag/advanced_version)  
-- [TAG_NO_GUI](https://github.com/Maskass57/ocaml-maxflow-project/releases/tag/NoGUI)
-The actual version contains a GUI used to display the results obtained from running.
+- [TAG_NO_GUI](https://github.com/Maskass57/ocaml-maxflow-project/releases/tag/NoGUI)  
+The actual version contains a GUI used to display the results obtained from running.  
 
 ## Building and running (not recommended, see below to use our scripts)
-Note that we automatized the installation of lablgtk (used to display results) via make build.
+Note that we automated the installation of lablgtk (used to display results) via make build.
+More importantly, all those steps are automated in some scripts present :  
+[Shell script](https://github.com/Maskass57/ocaml-maxflow-project?tab=readme-ov-file#automatic-testing)
+
 ```bash
 make clean
 make build
@@ -30,10 +37,15 @@ Chaque sport a une capacité limité. Notre algo donne de manière aléatoire un
 en respectant obligatoirement leurs voeux et en maximisant bien sur le flot.  
 
 ### Automatic testing
+Those scripts allow to test in a developper and test-friendly way.  
+You may run the following commands:  
 ```bash
 cd shell_scripts
 ./example_medium.sh
 ```
+Output:
+![OutputScriptMedium](./resources/outputScriptMedium.png)
+
 ### Example
 
 Use `sportvoeux2.txt`
@@ -61,12 +73,18 @@ Pour cela, nous avons des sorties textuelles, des graphes, et graphiques.
 Nous vous invitons à les consulter ci-dessous: 
 
 ### Automatic testing
-
+Those scripts allow to test in a developper and test-friendly way. 
+This script offers a very good way of testing as we can specify a list of files to test.  
+In this case, we test the following files: [](./graphs/sportvoeux4.txt),[](./graphs/sportvoeux5.txt),[](./graphs/sportvoeux6.txt)
+Basically, this command only runs the previous script [](./shell_scripts/example_medium.sh) but several times.
+You may run the following commands: 
 ```bash
 cd shell_scripts
 ./advanced_demo.sh.sh
 ```
 You can access the textual outputs of the graphs generated (including the global cost and each path found in the logs dir)
+With a single run, we get the following (and the GUI):
+![Exemple](resources/advancedScript.png)
 
 ### Example
 Dans ce graphe, nous avons 60 étudiants et 75 places au total, tous sports confondus.
