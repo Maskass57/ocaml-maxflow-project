@@ -1,4 +1,5 @@
-% Graph handwritten
+% Medium project with capacities
+
 n Jean 1
 n Philippe 2
 n Claude 3

@@ -1,0 +1,136 @@
+% Cas où il n'y a pas assez de places pour beaucoup d'étudiants
+% Impossible de satisfaire tout le monde, tout le monde veut faire du rugby à Toulouse.
+
+% personne-id
+n Alice 1
+n Bernard 2
+n Claire 3
+n Denis 4
+n Eva 5
+n François 6
+n Gérard 7
+n Hélène 8
+n Isabelle 9
+n Julien 10
+n Karim 11
+n Léa 12
+n Marc 13
+n Nathalie 14
+n Olivier 15
+n Pauline 16
+n Quentin 17
+n Rachel 18
+n Samuel 19
+n Thomas 20
+
+% sport-id
+n Badminton 101 
+n Basket 102 
+n Foot 103 
+n Rugby 104 
+n Danse 105
+n APPN 106
+n CTP 107 
+n Pétanque 108
+
+%personne-sport-capa-coût
+a 1 104 1 1  % Choix 1 pour Alice : Rugby avec coût 1
+a 1 102 1 2  % Choix 2 pour Alice : Basket avec coût 2
+a 1 103 1 3  % Choix 3 pour Alice : Foot avec coût 3
+
+a 2 104 1 1  % Choix 1 pour Bernard : Rugby avec coût 1
+a 2 101 1 2  % Choix 2 pour Bernard : Badminton avec coût 2
+a 2 102 1 3  % Choix 3 pour Bernard : Basket avec coût 3
+
+a 3 104 1 1  % Choix 1 pour Claire : Rugby avec coût 1
+a 3 103 1 2  % Choix 2 pour Claire : Foot avec coût 2
+a 3 105 1 3  % Choix 3 pour Claire : Danse avec coût 3
+
+a 4 104 1 1  % Choix 1 pour Denis : Rugby avec coût 1
+a 4 103 1 2  % Choix 2 pour Denis : Foot avec coût 2
+a 4 108 1 3  % Choix 3 pour Denis : Pétanque avec coût 3
+
+a 5 104 1 1  % Choix 1 pour Eva : Rugby avec coût 1
+a 5 108 1 2  % Choix 2 pour Eva : Pétanque avec coût 2
+a 5 108 1 3  % Choix 3 pour Eva : Pétanque avec coût 3 (répétition pour augmenter le coût de l'option)
+
+a 6 104 1 1  % Choix 1 pour François : Rugby avec coût 1
+a 6 103 1 2  % Choix 2 pour François : Foot avec coût 2
+a 6 102 1 3  % Choix 3 pour François : Basket avec coût 3
+
+a 7 104 1 1  % Choix 1 pour Gérard : Rugby avec coût 1
+a 7 102 1 2  % Choix 2 pour Gérard : Basket avec coût 2
+a 7 103 1 3  % Choix 3 pour Gérard : Foot avec coût 3
+
+a 8 104 1 1  % Choix 1 pour Hélène : Rugby avec coût 1
+a 8 105 1 2  % Choix 2 pour Hélène : Danse avec coût 2
+a 8 108 1 3  % Choix 3 pour Hélène : Pétanque avec coût 3
+
+a 9 104 1 1  % Choix 1 pour Isabelle : Rugby avec coût 1
+a 9 105 1 2  % Choix 2 pour Isabelle : Danse avec coût 2
+a 9 108 1 3  % Choix 3 pour Isabelle : Pétanque avec coût 3
+
+a 10 104 1 1  % Choix 1 pour Julien : Rugby avec coût 1
+a 10 102 1 2  % Choix 2 pour Julien : Basket avec coût 2
+a 10 101 1 3  % Choix 3 pour Julien : Badminton avec coût 3
+
+a 11 104 1 1  % Choix 1 pour Karim : Rugby avec coût 1
+a 11 102 1 2  % Choix 2 pour Karim : Basket avec coût 2
+a 11 103 1 3  % Choix 3 pour Karim : Foot avec coût 3
+
+a 12 104 1 1  % Choix 1 pour Léa : Rugby avec coût 1
+a 12 108 1 2  % Choix 2 pour Léa : Pétanque avec coût 2
+a 12 102 1 3  % Choix 3 pour Léa : Basket avec coût 3
+
+% Marc
+a 13 104 1 1  % Choix 1 pour Marc : Rugby avec coût 1
+a 13 102 1 2  % Choix 2 pour Marc : Basket avec coût 2
+a 13 101 1 3  % Choix 3 pour Marc : Badminton avec coût 3
+
+% Nathalie
+a 14 104 1 1  % Choix 1 pour Nathalie : Rugby avec coût 1
+a 14 105 1 2  % Choix 2 pour Nathalie : Danse avec coût 2
+a 14 103 1 3  % Choix 3 pour Nathalie : Foot avec coût 3
+
+% Olivier
+a 15 104 1 1  % Choix 1 pour Olivier : Rugby avec coût 1
+a 15 107 1 2  % Choix 2 pour Olivier : CTP avec coût 2
+a 15 102 1 3  % Choix 3 pour Olivier : Basket avec coût 3
+
+% Pauline
+a 16 104 1 1  % Choix 1 pour Pauline : Rugby avec coût 1
+a 16 106 1 2  % Choix 2 pour Pauline : APPN avec coût 2
+a 16 103 1 3  % Choix 3 pour Pauline : Foot avec coût 3
+
+% Quentin
+a 17 104 1 1  % Choix 1 pour Quentin : Rugby avec coût 1
+a 17 101 1 2  % Choix 2 pour Quentin : Badminton avec coût 2
+a 17 105 1 3  % Choix 3 pour Quentin : Danse avec coût 3
+
+% Rachel
+a 18 104 1 1  % Choix 1 pour Rachel : Rugby avec coût 1
+a 18 102 1 2  % Choix 2 pour Rachel : Basket avec coût 2
+a 18 107 1 3  % Choix 3 pour Rachel : CTP avec coût 3
+
+% Samuel
+a 19 104 1 1  % Choix 1 pour Samuel : Rugby avec coût 1
+a 19 103 1 2  % Choix 2 pour Samuel : Foot avec coût 2
+a 19 101 1 3  % Choix 3 pour Samuel : Badminton avec coût 3
+
+% Thomas
+a 20 104 1 1  % Choix 1 pour Thomas : Rugby avec coût 1
+a 20 106 1 2  % Choix 2 pour Thomas : APPN avec coût 2
+a 20 105 1 3  % Choix 3 pour Thomas : Danse avec coût 3
+
+
+% sport-destination-capa
+% Il y a bien sur des capacités plus grandes normalement,
+% mais ici on regarde ce qui se passe si ca sature
+a 101 1001 20 0  % Capacité 2 pour Badminton
+a 102 1001 10 0  % Capacité 1 pour Basket
+a 103 1001 20 0  % Capacité 2 pour Foot
+a 104 1001 7 0  % Capacité 1 pour Rugby
+a 105 1001 20 0  % Capacité 2 pour Danse
+a 106 1001 15 0  % Capacité 1 pour APPN
+a 107 1001 10 0  % Capacité 1 pour CTP
+a 108 1001 3 0  % Capacité 1 pour Pétanque

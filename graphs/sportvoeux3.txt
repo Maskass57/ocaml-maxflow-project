@@ -1,4 +1,5 @@
-% Graph handwritten
+% Medium project, with origin and destination
+
 % person-id
 n Jean 1
 n Philippe 2
@@ -11,7 +12,7 @@ n Philippe 8
 n Claude 9
 n Francis 10
 n Guillaume 11
-n Jean-Philippe 12
+n Jean-Philippe 12part
 n Jean 13
 n Philippe 14
 n Claude 15

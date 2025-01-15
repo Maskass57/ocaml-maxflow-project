@@ -61,6 +61,45 @@ n Elodie 57
 n Fanny 58
 n Georges 59
 n Hugo 60
+n Adrien 61
+n Bastien 62
+n Camille 63
+n David 64
+n Élise 65
+n François 66
+n Giselle 67
+n Hugo 68
+n Isabelle 69
+n Jérôme 70
+n Karine 71
+n Léon 72
+n Mathieu 73
+n Noé 74
+n Olivia 75
+n Pierre 76
+n Quentin 77
+n Rémy 78
+n Stéphane 79
+n Thérèse 80
+n Ugo 81
+n Valérie 82
+n Wendy 83
+n Xavier 84
+n Yves 85
+n Zoé 86
+n Adrien 87
+n Bastien 88
+n Camille 89
+n David 90
+n Élise 91
+n François 92
+n Giselle 93
+n Hugo 94
+n Isabelle 95
+n Jérôme 96
+n Solange 97
+n Clément 98
+n Jean-Philippe 99
 
 % sport-id
 n Badminton 101 
@@ -82,7 +121,7 @@ a 2 101 1 2  % Choix 2 pour Bernard : Badminton avec coût 2
 a 2 102 1 3  % Choix 3 pour Bernard : Basket avec coût 3
 
 a 3 103 1 1  % Choix 1 pour Claire : Foot avec coût 1
-a 3 104 1 2  % Choix 2 pour Claire : Rugby avec coût 2
+a 3 106 1 2  % Choix 2 pour Claire : CTP avec coût 2
 a 3 105 1 3  % Choix 3 pour Claire : Danse avec coût 3
 
 a 4 108 1 1  % Choix 1 pour Denis : Pétanque avec coût 1
@@ -94,12 +133,12 @@ a 5 108 1 2  % Choix 2 pour Eva : Pétanque avec coût 2
 a 5 108 1 3  % Choix 3 pour Eva : Pétanque avec coût 3 (répétition pour augmenter le coût de l'option)
 
 a 6 102 1 1  % Choix 1 pour François : Basket avec coût 1
-a 6 103 1 2  % Choix 2 pour François : Foot avec coût 2
+a 6 106 1 2  % Choix 2 pour François : Foot avec coût 2
 a 6 104 1 3  % Choix 3 pour François : Rugby avec coût 3
 
 a 7 101 1 1  % Choix 1 pour Gérard : Badminton avec coût 1
 a 7 102 1 2  % Choix 2 pour Gérard : Basket avec coût 2
-a 7 103 1 3  % Choix 3 pour Gérard : Foot avec coût 3
+a 7 106 1 3  % Choix 3 pour Gérard : Foot avec coût 3
 
 a 8 104 1 1  % Choix 1 pour Hélène : Rugby avec coût 1
 a 8 105 1 2  % Choix 2 pour Hélène : Danse avec coût 2
@@ -126,14 +165,14 @@ a 13 102 1 2  % Choix 2 pour Marc : Basket avec coût 2
 a 13 105 1 3  % Choix 3 pour Marc : Danse avec coût 3
 
 a 14 108 1 1  % Choix 1 pour Nadia : Pétanque avec coût 1
-a 14 103 1 2  % Choix 2 pour Nadia : Foot avec coût 2
+a 14 106 1 2  % Choix 2 pour Nadia : Foot avec coût 2
 a 14 102 1 3  % Choix 3 pour Nadia : Basket avec coût 3
 
 a 15 105 1 1  % Choix 1 pour Olivier : Danse avec coût 1
 a 15 101 1 2  % Choix 2 pour Olivier : Badminton avec coût 2
-a 15 103 1 3  % Choix 3 pour Olivier : Foot avec coût 3
+a 15 106 1 3  % Choix 3 pour Olivier : Foot avec coût 3
 
-a 16 104 1 1  % Choix 1 pour Pauline : Rugby avec coût 1
+a 16 107 1 1  % Choix 1 pour Pauline : Rugby avec coût 1
 a 16 102 1 2  % Choix 2 pour Pauline : Basket avec coût 2
 a 16 105 1 3  % Choix 3 pour Pauline : Danse avec coût 3
 
@@ -141,7 +180,7 @@ a 17 103 1 1  % Choix 1 pour Quentin : Foot avec coût 1
 a 17 105 1 2  % Choix 2 pour Quentin : Danse avec coût 2
 a 17 102 1 3  % Choix 3 pour Quentin : Basket avec coût 3
 
-a 18 104 1 1  % Choix 1 pour Rachid : Rugby avec coût 1
+a 18 107 1 1  % Choix 1 pour Rachid : Rugby avec coût 1
 a 18 101 1 2  % Choix 2 pour Rachid : Badminton avec coût 2
 a 18 105 1 3  % Choix 3 pour Rachid : Danse avec coût 3
 
@@ -150,28 +189,28 @@ a 19 103 1 2  % Choix 2 pour Sophie : Foot avec coût 2
 a 19 105 1 3  % Choix 3 pour Sophie : Danse avec coût 3
 
 a 20 103 1 1  % Choix 1 pour Thomas : Foot avec coût 1
-a 20 104 1 2  % Choix 2 pour Thomas : Rugby avec coût 2
+a 20 107 1 2  % Choix 2 pour Thomas : Rugby avec coût 2
 a 20 102 1 3  % Choix 3 pour Thomas : Basket avec coût 3
 
 a 21 101 1 1  % Choix 1 pour Ulysse : Badminton avec coût 1
-a 21 104 1 2  % Choix 2 pour Ulysse : Rugby avec coût 2
-a 21 105 1 3  % Choix 3 pour Ulysse : Danse avec coût 3
+a 21 106 1 2  % Choix 2 pour Ulysse : Rugby avec coût 2
+a 21 107 1 3  % Choix 3 pour Ulysse : Danse avec coût 3
 
 a 22 102 1 1  % Choix 1 pour Victor : Basket avec coût 1
 a 22 103 1 2  % Choix 2 pour Victor : Foot avec coût 2
-a 22 104 1 3  % Choix 3 pour Victor : Rugby avec coût 3
+a 22 106 1 3  % Choix 3 pour Victor : Rugby avec coût 3
 
-a 23 104 1 1  % Choix 1 pour Wendy : Rugby avec coût 1
+a 23 106 1 1  % Choix 1 pour Wendy : Rugby avec coût 1
 a 23 103 1 2  % Choix 2 pour Wendy : Foot avec coût 2
-a 23 105 1 3  % Choix 3 pour Wendy : Danse avec coût 3
+a 23 107 1 3  % Choix 3 pour Wendy : Danse avec coût 3
 
 a 24 101 1 1  % Choix 1 pour Xavier : Badminton avec coût 1
 a 24 102 1 2  % Choix 2 pour Xavier : Basket avec coût 2
-a 24 104 1 3  % Choix 3 pour Xavier : Rugby avec coût 3
+a 24 106 1 3  % Choix 3 pour Xavier : Rugby avec coût 3
 
-a 25 105 1 1  % Choix 1 pour Yasmine : Danse avec coût 1
+a 25 107 1 1  % Choix 1 pour Yasmine : Danse avec coût 1
 a 25 108 1 2  % Choix 2 pour Yasmine : Pétanque avec coût 2
-a 25 104 1 3  % Choix 3 pour Yasmine : Rugby avec coût 3
+a 25 106 1 3  % Choix 3 pour Yasmine : Rugby avec coût 3
 
 a 26 108 1 1  % Choix 1 pour Zacharie : Pétanque avec coût 1
 a 26 102 1 2  % Choix 2 pour Zacharie : Basket avec coût 2
@@ -179,22 +218,22 @@ a 26 101 1 3  % Choix 3 pour Zacharie : Badminton avec coût 3
 
 a 27 104 1 1  % Choix 1 pour Amandine : Rugby avec coût 1
 a 27 102 1 2  % Choix 2 pour Amandine : Basket avec coût 2
-a 27 103 1 3  % Choix 3 pour Amandine : Foot avec coût 3
+a 27 106 1 3  % Choix 3 pour Amandine : Foot avec coût 3
 
-a 28 105 1 1  % Choix 1 pour Bastien : Danse avec coût 1
+a 28 107 1 1  % Choix 1 pour Bastien : Danse avec coût 1
 a 28 101 1 2  % Choix 2 pour Bastien : Badminton avec coût 2
 a 28 104 1 3  % Choix 3 pour Bastien : Rugby avec coût 3
 
-a 29 103 1 1  % Choix 1 pour Charlotte : Foot avec coût 1
+a 29 106 1 1  % Choix 1 pour Charlotte : Foot avec coût 1
 a 29 104 1 2  % Choix 2 pour Charlotte : Rugby avec coût 2
 a 29 102 1 3  % Choix 3 pour Charlotte : Basket avec coût 3
 
 a 30 102 1 1  % Choix 1 pour Damien : Basket avec coût 1
-a 30 103 1 2  % Choix 2 pour Damien : Foot avec coût 2
+a 30 106 1 2  % Choix 2 pour Damien : Foot avec coût 2
 a 30 105 1 3  % Choix 3 pour Damien : Danse avec coût 3
 
-a 31 108 1 1  % Choix 1 pour Élise : Pétanque avec coût 1
-a 31 103 1 2  % Choix 2 pour Élise : Foot avec coût 2
+a 31 107 1 1  % Choix 1 pour Élise : Pétanque avec coût 1
+a 31 106 1 2  % Choix 2 pour Élise : Foot avec coût 2
 a 31 105 1 3  % Choix 3 pour Élise : Danse avec coût 3
 
 a 32 104 1 1  % Choix 1 pour Fabien : Rugby avec coût 1
@@ -203,7 +242,7 @@ a 32 105 1 3  % Choix 3 pour Fabien : Danse avec coût 3
 
 a 33 105 1 1  % Choix 1 pour Gaëlle : Danse avec coût 1
 a 33 102 1 2  % Choix 2 pour Gaëlle : Basket avec coût 2
-a 33 103 1 3  % Choix 3 pour Gaëlle : Foot avec coût 3
+a 33 106 1 3  % Choix 3 pour Gaëlle : Foot avec coût 3
 
 a 34 104 1 1  % Choix 1 pour Hugo : Rugby avec coût 1
 a 34 102 1 2  % Choix 2 pour Hugo : Basket avec coût 2
@@ -211,13 +250,13 @@ a 34 105 1 3  % Choix 3 pour Hugo : Danse avec coût 3
 
 a 35 103 1 1  % Choix 1 pour Isabelle : Foot avec coût 1
 a 35 105 1 2  % Choix 2 pour Isabelle : Danse avec coût 2
-a 35 108 1 3  % Choix 3 pour Isabelle : Pétanque avec coût 3
+a 35 107 1 3  % Choix 3 pour Isabelle : Pétanque avec coût 3
 
 a 36 101 1 1  % Choix 1 pour Jérôme : Badminton avec coût 1
 a 36 102 1 2  % Choix 2 pour Jérôme : Basket avec coût 2
 a 36 104 1 3  % Choix 3 pour Jérôme : Rugby avec coût 3
 
-a 37 108 1 1  % Choix 1 pour Karine : Pétanque avec coût 1
+a 37 107 1 1  % Choix 1 pour Karine : Pétanque avec coût 1
 a 37 104 1 2  % Choix 2 pour Karine : Rugby avec coût 2
 a 37 102 1 3  % Choix 3 pour Karine : Basket avec coût 3
 
@@ -250,7 +289,7 @@ a 44 102 1 2  % Choix 2 pour Rémy : Basket avec coût 2
 a 44 104 1 3  % Choix 3 pour Rémy : Rugby avec coût 3
 
 a 45 105 1 1  % Choix 1 pour Stéphane : Danse avec coût 1
-a 45 108 1 2  % Choix 2 pour Stéphane : Pétanque avec coût 2
+a 45 107 1 2  % Choix 2 pour Stéphane : Pétanque avec coût 2
 a 45 103 1 3  % Choix 3 pour Stéphane : Foot avec coût 3
 
 a 46 102 1 1  % Choix 1 pour Thérèse : Basket avec coût 1
@@ -273,7 +312,7 @@ a 50 101 1 1  % Choix 1 pour Xavier : Badminton avec coût 1
 a 50 104 1 2  % Choix 2 pour Xavier : Rugby avec coût 2
 a 50 105 1 3  % Choix 3 pour Xavier : Danse avec coût 3
 
-a 51 108 1 1  % Choix 1 pour Yves : Pétanque avec coût 1
+a 51 107 1 1  % Choix 1 pour Yves : Pétanque avec coût 1
 a 51 102 1 2  % Choix 2 pour Yves : Basket avec coût 2
 a 51 101 1 3  % Choix 3 pour Yves : Badminton avec coût 3
 
@@ -287,9 +326,9 @@ a 53 105 1 3  % Choix 3 pour Adrien : Danse avec coût 3
 
 a 54 103 1 1  % Choix 1 pour Bastien : Foot avec coût 1
 a 54 105 1 2  % Choix 2 pour Bastien : Danse avec coût 2
-a 54 108 1 3  % Choix 3 pour Bastien : Pétanque avec coût 3
+a 54 107 1 3  % Choix 3 pour Bastien : Pétanque avec coût 3
 
-a 55 101 1 1  % Choix 1 pour Camille : Badminton avec coût 1
+a 55 107 1 1  % Choix 1 pour Camille : Badminton avec coût 1
 a 55 102 1 2  % Choix 2 pour Camille : Basket avec coût 2
 a 55 104 1 3  % Choix 3 pour Camille : Rugby avec coût 3
 
@@ -301,7 +340,7 @@ a 57 104 1 1  % Choix 1 pour Élise : Rugby avec coût 1
 a 57 102 1 2  % Choix 2 pour Élise : Basket avec coût 2
 a 57 105 1 3  % Choix 3 pour Élise : Danse avec coût 3
 
-a 58 101 1 1  % Choix 1 pour François : Badminton avec coût 1
+a 58 107 1 1  % Choix 1 pour François : Badminton avec coût 1
 a 58 102 1 2  % Choix 2 pour François : Basket avec coût 2
 a 58 104 1 3  % Choix 3 pour François : Rugby avec coût 3
 
@@ -313,12 +352,168 @@ a 60 105 1 1  % Choix 1 pour Hugo : Danse avec coût 1
 a 60 102 1 2  % Choix 2 pour Hugo : Basket avec coût 2
 a 60 103 1 3  % Choix 3 pour Hugo : Foot avec coût 3
 
+a 61 104 1 1  % Choix 1 pour Adrien : Rugby avec coût 1
+a 61 102 1 2  % Choix 2 pour Adrien : Basket avec coût 2
+a 61 105 1 3  % Choix 3 pour Adrien : Danse avec coût 3
+
+a 62 107 1 1  % Choix 1 pour Bastien : Foot avec coût 1
+a 62 105 1 2  % Choix 2 pour Bastien : Danse avec coût 2
+a 62 108 1 3  % Choix 3 pour Bastien : Pétanque avec coût 3
+
+a 63 107 1 1  % Choix 1 pour Camille : Badminton avec coût 1
+a 63 102 1 2  % Choix 2 pour Camille : Basket avec coût 2
+a 63 104 1 3  % Choix 3 pour Camille : Rugby avec coût 3
+
+a 64 108 1 1  % Choix 1 pour David : Pétanque avec coût 1
+a 64 103 1 2  % Choix 2 pour David : Foot avec coût 2
+a 64 105 1 3  % Choix 3 pour David : Danse avec coût 3
+
+a 65 104 1 1  % Choix 1 pour Élise : Rugby avec coût 1
+a 65 102 1 2  % Choix 2 pour Élise : Basket avec coût 2
+a 65 105 1 3  % Choix 3 pour Élise : Danse avec coût 3
+
+a 66 107 1 1  % Choix 1 pour François : Badminton avec coût 1
+a 66 107 1 2  % Choix 2 pour François : Basket avec coût 2
+a 66 104 1 3  % Choix 3 pour François : Rugby avec coût 3
+
+a 67 103 1 1  % Choix 1 pour Giselle : Foot avec coût 1
+a 67 104 1 2  % Choix 2 pour Giselle : Rugby avec coût 2
+a 67 107 1 3  % Choix 3 pour Giselle : Basket avec coût 3
+
+a 68 105 1 1  % Choix 1 pour Hugo : Danse avec coût 1
+a 68 107 1 2  % Choix 2 pour Hugo : Basket avec coût 2
+a 68 103 1 3  % Choix 3 pour Hugo : Foot avec coût 3
+
+a 69 104 1 1  % Choix 1 pour Isabelle : Rugby avec coût 1
+a 69 107 1 2  % Choix 2 pour Isabelle : Basket avec coût 2
+a 69 105 1 3  % Choix 3 pour Isabelle : Danse avec coût 3
+
+a 70 107 1 1  % Choix 1 pour Jérôme : Badminton avec coût 1
+a 70 107 1 2  % Choix 2 pour Jérôme : Basket avec coût 2
+a 70 104 1 3  % Choix 3 pour Jérôme : Rugby avec coût 3
+
+a 71 108 1 1  % Choix 1 pour Karine : Pétanque avec coût 1
+a 71 104 1 2  % Choix 2 pour Karine : Rugby avec coût 2
+a 71 107 1 3  % Choix 3 pour Karine : Basket avec coût 3
+
+a 72 105 1 1  % Choix 1 pour Léon : Danse avec coût 1
+a 72 104 1 2  % Choix 2 pour Léon : Rugby avec coût 2
+a 72 107 1 3  % Choix 3 pour Léon : Basket avec coût 3
+
+a 73 107 1 1  % Choix 1 pour Mathieu : Basket avec coût 1
+a 73 105 1 2  % Choix 2 pour Mathieu : Danse avec coût 2
+a 73 106 1 3  % Choix 3 pour Mathieu : Foot avec coût 3
+
+a 74 107 1 1  % Choix 1 pour Noé : Badminton avec coût 1
+a 74 107 1 2  % Choix 2 pour Noé : Basket avec coût 2
+a 74 104 1 3  % Choix 3 pour Noé : Rugby avec coût 3
+
+a 75 105 1 1  % Choix 1 pour Olivia : Danse avec coût 1
+a 75 107 1 2  % Choix 2 pour Olivia : Basket avec coût 2
+a 75 106 1 3  % Choix 3 pour Olivia : Foot avec coût 3
+
+a 76 104 1 1  % Choix 1 pour Pierre : Rugby avec coût 1
+a 76 107 1 2  % Choix 2 pour Pierre : Basket avec coût 2
+a 76 105 1 3  % Choix 3 pour Pierre : Danse avec coût 3
+
+a 77 106 1 1  % Choix 1 pour Quentin : Foot avec coût 1
+a 77 104 1 2  % Choix 2 pour Quentin : Rugby avec coût 2
+a 77 107 1 3  % Choix 3 pour Quentin : Basket avec coût 3
+
+a 78 101 1 1  % Choix 1 pour Rémy : Badminton avec coût 1
+a 78 107 1 2  % Choix 2 pour Rémy : Basket avec coût 2
+a 78 104 1 3  % Choix 3 pour Rémy : Rugby avec coût 3
+
+a 79 105 1 1  % Choix 1 pour Stéphane : Danse avec coût 1
+a 79 108 1 2  % Choix 2 pour Stéphane : Pétanque avec coût 2
+a 79 106 1 3  % Choix 3 pour Stéphane : Foot avec coût 3
+
+a 80 107 1 1  % Choix 1 pour Thérèse : Basket avec coût 1
+a 80 105 1 2  % Choix 2 pour Thérèse : Danse avec coût 2
+a 80 106 1 3  % Choix 3 pour Thérèse : Foot avec coût 3
+
+a 81 104 1 1  % Choix 1 pour Ugo : Rugby avec coût 1
+a 81 106 1 2  % Choix 2 pour Ugo : Foot avec coût 2
+a 81 105 1 3  % Choix 3 pour Ugo : Danse avec coût 3
+
+a 82 105 1 1  % Choix 1 pour Valérie : Danse avec coût 1
+a 82 107 1 2  % Choix 2 pour Valérie : Basket avec coût 2
+a 82 104 1 3  % Choix 3 pour Valérie : Rugby avec coût 3
+
+a 83 106 1 1  % Choix 1 pour Wendy : Foot avec coût 1
+a 83 105 1 2  % Choix 2 pour Wendy : Danse avec coût 2
+a 83 107 1 3  % Choix 3 pour Wendy : Basket avec coût 3
+
+a 84 101 1 1  % Choix 1 pour Xavier : Badminton avec coût 1
+a 84 104 1 2  % Choix 2 pour Xavier : Rugby avec coût 2
+a 84 105 1 3  % Choix 3 pour Xavier : Danse avec coût 3
+
+a 85 108 1 1  % Choix 1 pour Yves : Pétanque avec coût 1
+a 85 102 1 2  % Choix 2 pour Yves : Basket avec coût 2
+a 85 101 1 3  % Choix 3 pour Yves : Badminton avec coût 3
+
+a 86 106 1 1  % Choix 1 pour Zoé : Foot avec coût 1
+a 86 102 1 2  % Choix 2 pour Zoé : Basket avec coût 2
+a 86 104 1 3  % Choix 3 pour Zoé : Rugby avec coût 3
+
+a 87 104 1 1  % Choix 1 pour Adrien : Rugby avec coût 1
+a 87 102 1 2  % Choix 2 pour Adrien : Basket avec coût 2
+a 87 105 1 3  % Choix 3 pour Adrien : Danse
+
+a 88 104 1 1  % Choix 1 pour Bastien : Rugby avec coût 1
+a 88 102 1 2  % Choix 2 pour Bastien : Basket avec coût 2
+a 88 105 1 3  % Choix 3 pour Bastien : Danse avec coût 3
+
+a 89 101 1 1  % Choix 1 pour Camille : Badminton avec coût 1
+a 89 104 1 2  % Choix 2 pour Camille : Rugby avec coût 2
+a 89 105 1 3  % Choix 3 pour Camille : Danse avec coût 3
+
+a 90 106 1 1  % Choix 1 pour David : Foot avec coût 1
+a 90 105 1 2  % Choix 2 pour David : Danse avec coût 2
+a 90 106 1 3  % Choix 3 pour David : Rugby avec coût 3
+
+a 91 106 1 1  % Choix 1 pour Élise : Rugby avec coût 1
+a 91 102 1 2  % Choix 2 pour Élise : Basket avec coût 2
+a 91 105 1 3  % Choix 3 pour Élise : Danse avec coût 3
+
+a 92 101 1 1  % Choix 1 pour François : Badminton avec coût 1
+a 92 102 1 2  % Choix 2 pour François : Basket avec coût 2
+a 92 106 1 3  % Choix 3 pour François : Rugby avec coût 3
+
+a 93 103 1 1  % Choix 1 pour Giselle : Foot avec coût 1
+a 93 104 1 2  % Choix 2 pour Giselle : Rugby avec coût 2
+a 93 102 1 3  % Choix 3 pour Giselle : Basket avec coût 3
+
+a 94 104 1 1  % Choix 1 pour Hugo : Rugby avec coût 1
+a 94 102 1 2  % Choix 2 pour Hugo : Basket avec coût 2
+a 94 105 1 3  % Choix 3 pour Hugo : Danse avec coût 3
+
+a 95 103 1 1  % Choix 1 pour Isabelle : Foot avec coût 1
+a 95 104 1 2  % Choix 2 pour Isabelle : Rugby avec coût 2
+a 95 102 1 3  % Choix 3 pour Isabelle : Basket avec coût 3
+
+a 96 101 1 1  % Choix 1 pour Jérôme : Badminton avec coût 1
+a 96 104 1 2  % Choix 2 pour Jérôme : Rugby avec coût 2
+a 96 102 1 3  % Choix 3 pour Jérôme : Basket avec coût 3
+
+a 97 105 1 1  % Choix 1 pour Solange : Danse avec coût 1
+a 97 103 1 2  % Choix 2 pour Solange : Foot avec coût 2
+a 97 104 1 3  % Choix 3 pour Solange : Rugby avec coût 3
+
+a 98 102 1 1  % Choix 1 pour Clément : Basket avec coût 1
+a 98 104 1 2  % Choix 2 pour Clément : Rugby avec coût 2
+a 98 103 1 3  % Choix 3 pour Clément : Foot avec coût 3
+
+a 99 101 1 1  % Choix 1 pour Jean-Philippe : Badminton avec coût 1
+a 99 102 1 2  % Choix 2 pour Jean-Philippe : Basket avec coût 2
+a 99 104 1 3  % Choix 3 pour Jean-Philippe : Rugby avec coût 3
+
 % sport-destination-capa
-a 101 1001 20 0  % Capacité 20 pour Badminton
-a 102 1001 10 0  % Capacité 10 pour Basket
-a 103 1001 20 0  % Capacité 20 pour Foot
-a 104 1001 10 0  % Capacité 10 pour Rugby
-a 105 1001 10 0  % Capacité 10 pour Danse
-a 106 1001 2 0  % Capacité 2 pour APPN
-a 107 1001 1 0  % Capacité 1 pour CTP
-a 108 1001 2 0  % Capacité 2 pour Pétanque
+a 101 1001 15 0  % Capacité 20 pour Badminton
+a 102 1001 15 0  % Capacité 10 pour Basket
+a 103 1001 15 0  % Capacité 20 pour Foot
+a 104 1001 15 0  % Capacité 10 pour Rugby
+a 105 1001 15 0  % Capacité 10 pour Danse
+a 106 1001 15 0  % Capacité 2 pour APPN
+a 107 1001 15 0  % Capacité 1 pour CTP
+a 108 1001 15 0  % Capacité 2 pour Pétanque

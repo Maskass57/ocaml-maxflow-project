@@ -2,7 +2,7 @@
 
 src?=0
 dst?=5
-graph?=sportvoeux6.txt
+graph?=sportvoeux9.txt
 OPAM_DEPENDENCIES=lablgtk
 
 all: build
