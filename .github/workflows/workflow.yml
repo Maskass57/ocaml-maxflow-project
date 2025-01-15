@@ -38,6 +38,12 @@ jobs:
         with:
           ocaml-version: ${{ matrix.ocaml-version }}
 
+      - name: Install system dependencies
+        run: |
+          sudo add-apt-repository universe
+          sudo apt-get update
+          sudo apt-get install -y bubblewrap darcs g++-multilib gcc-multilib mercurial musl-tools
+          
       - run: opam install dune
       - name: Build project
         run: eval $(opam env) && make build
