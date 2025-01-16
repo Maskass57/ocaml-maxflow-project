@@ -64,14 +64,14 @@ let from_file_aps_cost path =
 let add_origin_destination_cost graph nbreSportsChoisis =
   let o_graph = 
     try
-      new_node graph 1000 
+      new_node graph sourceConstante 
     with Graph_error _->
       Printf.printf "Node origin already exists\n";
       graph
   in
   let o_d_graph = 
     try
-      new_node o_graph 1001
+      new_node o_graph destinationConstante
     with Graph_error _-> 
       Printf.printf "Node destination already exists\n";
       o_graph
@@ -84,7 +84,7 @@ let add_origin_destination_cost graph nbreSportsChoisis =
       | id :: rest ->
         let updated_graph = 
           if (id >= 1 && id < 100) then 
-            new_arc current_graph {src=1000;tgt=id;lbl={capa=nbreSportsChoisis;cost=0}}
+            new_arc current_graph {src=sourceConstante;tgt=id;lbl={capa=nbreSportsChoisis;cost=0}}
             (*else if (id > 100 && id <1000) then
               new_arc current_graph {src=id;tgt=1001;lbl={capa=1;cost=0}}*)
           else 

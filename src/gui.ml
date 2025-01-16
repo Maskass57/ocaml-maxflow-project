@@ -1,6 +1,8 @@
 open GMain
 open Graph 
 open FulkersonCost
+open Apsgraph
+
 let infile = Sys.argv.(1)
 let read_line line hashtbl =
   try 
@@ -44,7 +46,7 @@ let find_name_id path =
 
 let obtain_peopleID_sportID (gr:fulkerson_label_cost graph) = 
   e_fold gr (fun acu arc -> 
-      if (arc.lbl.flow = 1 && (arc.src <> 1000) && (arc.src <> 1001) && (arc.tgt <> 1000) && (arc.tgt <> 1001)) then
+      if (arc.lbl.flow = 1 && (arc.src <> sourceConstante) && (arc.src <> 1001) && (arc.tgt <> sourceConstante) && (arc.tgt <> destinationConstante)) then
         (arc.src,arc.tgt)::acu
       else 
         acu) []
@@ -58,7 +60,7 @@ let get_first_val = function
 
 let obtain_sport_flow_capa (gr:fulkerson_label_cost graph) id = 
   let list = e_fold gr (fun acu arc -> 
-      if (arc.src = id && arc.tgt = 1001) then
+      if (arc.src = id && arc.tgt = destinationConstante) then
         (arc.lbl.flow,arc.lbl.capa)::acu
       else 
         acu) [] in 

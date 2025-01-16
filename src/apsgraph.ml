@@ -2,6 +2,9 @@ open Graph
 open Printf
 open Gfile
 
+let sourceConstante = 1000
+let destinationConstante = 1001
+
 (**
    Reads a line containing a node.
    @param graph : input_label graph
@@ -42,15 +45,15 @@ let partition_nodes graph =
     | id :: rest ->
       if id >= 1 && id < 100 then
         partition (origin, id :: col1, col2, destination) rest  (* Add to col1 : people list *)
-      else if id == 1000 then
+      else if id == sourceConstante then
         partition (id,col1,col2,destination) rest
-      else if id == 1001 then
+      else if id == destinationConstante then
         partition (origin,col1,col2,id) rest
       else 
         partition (origin, col1, id :: col2, destination) rest  (* Add to col2 : sports list *)
   in
   let nodes = Graph.n_fold graph (fun acc id -> id :: acc) [] in
-  partition (1000, [], [], 1001) nodes
+  partition (sourceConstante, [], [], destinationConstante) nodes
 
 (**
    Reads the file found at path and returns the id graph.
@@ -100,14 +103,14 @@ let from_file_aps path =
 let add_origin_destination graph =
   let o_graph = 
     try
-      new_node graph 1000 
+      new_node graph sourceConstante 
     with Graph_error _->
       Printf.printf "Node origin already exists";
       graph
   in
   let o_d_graph = 
     try
-      new_node o_graph 1001
+      new_node o_graph destinationConstante
     with Graph_error _-> 
       Printf.printf "Node destination already exists";
       o_graph
@@ -121,7 +124,7 @@ let add_origin_destination graph =
       | id :: rest ->
         let updated_graph = 
           if (id >= 1 && id < 100) then 
-            new_arc current_graph {src=1000;tgt=id;lbl=1}
+            new_arc current_graph {src=sourceConstante;tgt=id;lbl=1}
             (*else if (id > 100 && id <1000) then
               new_arc current_graph {src=id;tgt=1001;lbl=1}
             *)

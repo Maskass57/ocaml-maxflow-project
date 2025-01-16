@@ -185,6 +185,11 @@ let unEdgeGraph_cost startGraph eGraph =
 *) 
 let grapheJoli (gr:fulkerson_label_cost graph) = gmap gr (fun x -> string_of_int x.flow ^ "/" ^ string_of_int x.capa)
 
+(**
+   Proper display of a dijkstra path found
+   @param path : path, the path to display
+   @return : unit
+*) 
 let print_dijkstra_path path =
   let formatted_path =
     String.concat " -> " (List.map (fun node -> string_of_int node) path)
